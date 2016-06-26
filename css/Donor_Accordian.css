@@ -1,0 +1,39 @@
+﻿body {
+    font-size: 0.9em;
+}
+
+#accordion {
+    width: 1080px;
+    float: left;
+    margin-left: 380px;
+    margin-top: 200px;
+    height: 500px;
+    position: fixed;
+}
+
+    #accordion div {
+    height: 300px;
+    }
+
+#tabs {
+    /*width: 600px;*/
+    min-height: 400px;
+    /*float: left;*/
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+.photos {
+    width: 150px;
+    border:1px solid #808080;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px gray;
+    float: left;
+    margin: 0 20px 10px 0;
+}
+
+footer {
+    clear: both;
+}

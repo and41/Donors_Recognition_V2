@@ -1,0 +1,27 @@
+﻿table
+        {
+            border-collapse: collapse;
+            display: block;
+            width: 100%;
+        }
+    table caption {
+        font-weight: bold;
+    }
+        table th
+        {
+            color: #333;
+            font-weight: bold;
+            padding: 2px 2px 2px 2px;
+            
+        }
+        table th, table td
+        {
+            border: 1px solid black; 
+        }
+tr.rowOdd {
+    background: #E8E8E8;
+}
+tr.rowEven {
+    background: #C0C0C0;
+}
+

@@ -1,0 +1,30 @@
+﻿table
+        {
+            border-collapse: collapse;
+            display: block;
+            width: 50%;
+            float: none;
+            position: fixed;
+            margin-left: 450px;
+            top: 65px;
+        }
+    table caption {
+        font-weight: bold;
+    }
+        table th
+        {
+            color: #333;
+            font-weight: bold;
+            padding: 2px 2px 2px 2px;
+            
+        }
+        table th, table td
+        {
+            border: 1px solid black; 
+        }
+tr.rowOdd {
+    background: #E8E8E8;
+}
+tr.rowEven {
+    background: #C0C0C0;
+}

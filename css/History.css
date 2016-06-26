@@ -1,0 +1,91 @@
+﻿html { 
+  background: url(../Images/Donor_Assets/Hanley_Background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+* { margin: 0; padding: 0; font-family: Helvetica;
+}
+
+iframe {
+    position: fixed;
+    margin: 50px 350px auto;
+    width: 1210px;
+    top: 0px;
+    border-radius: 10px;
+    border: 3px solid darkgoldenrod;
+    height: 650px;
+}
+
+
+
+.footer {
+    height:50px;
+    position: fixed;
+    bottom:170px;
+    width: 100%;
+}
+
+footer {
+    margin-left: 325px;
+    width: 1210px;
+    height: 210px;
+}
+div.menubar {
+    width: 180px; height: 210px;
+    float: left;
+    transition:height .4s;
+}
+div.one {
+    background-color:LightSteelBlue;
+}
+div.two {
+    background-color:tan;
+}
+div.three {
+    background-color:lightblue;
+}
+div.four {
+    background-color:darkgray;
+}
+div.five {
+    background-color:Silver;
+}
+div.six {
+    background-color:darkseagreen;
+}
+div.seven {
+    background-color: palevioletred;
+}
+
+img.icon {
+    display: block;
+    width: 40px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255,255,255,.3);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 30px rgba(255, 255, 255, 0);
+    transition:box-shadow .4s;
+
+}
+p.label {
+    font-size: 1.1em;
+    color: black;
+    text-align: center;
+    opacity: .6;
+    padding-top:10px;
+    position:relative;
+    transition: padding-top .4s;
+}
+div.menubar:hover {
+    height: 230px;
+}
+div.menubar:hover p.label {
+    padding-top: 30px;opacity: 1;
+}
+div.menubar:hover img.icon {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, .7);
+}

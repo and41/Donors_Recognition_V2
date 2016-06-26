@@ -1,0 +1,153 @@
+﻿html { 
+  background: url(../Images/Leadership_Assets/Leadership_Home.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+* { margin: 0; padding: 0; font-family: Helvetica;
+}
+
+table {
+    margin-right: 500px;
+}
+
+td {
+    font-size: 40px;
+}
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: 70%;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left;}
+
+/* Style the links inside the list items */
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 3px 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of links on hover */
+ul.tab li a:hover {background-color: #ddd;}
+
+/* Create an active/current tablink class */
+ul.tab li a:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
+    overflow: hidden;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.footer {
+    height:50px;
+    position: fixed;
+    bottom:170px;
+    width: 100%;
+}
+
+footer {
+    margin-left: 305px;
+    width: 1080px;
+    height: 210px;
+}
+div.template {
+    margin-right: 453px;
+    height: 500px;
+    overflow-y: scroll;
+}
+
+div.leaderdiv {
+    float:none;
+    height: 400px;
+    width: auto;
+    padding-left: 410px;
+    margin-top: 150px;
+}
+
+div.menubar {
+    width: 180px; height: 210px;
+    float: left;
+    transition:height .4s;
+}
+div.one {
+    background-color:LightSteelBlue;
+}
+div.two {
+    background-color:lightblue;
+}
+div.three {
+    background-color:darkgray;
+}
+div.four {
+    background-color:tan;
+}
+div.five {
+    background-color:Silver;
+}
+div.six {
+    background-color:darkseagreen;
+}
+div.seven {
+    background-color: palevioletred;
+}
+
+img.icon {
+    display: block;
+    width: 40px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255,255,255,.3);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 30px rgba(255, 255, 255, 0);
+    transition:box-shadow .4s;
+
+}
+p.label {
+    font-size: 1.1em;
+    color: black;
+    text-align: center;
+    opacity: .6;
+    padding-top:10px;
+    position:relative;
+    transition: padding-top .4s;
+}
+div.menubar:hover {
+    height: 230px;
+}
+div.menubar:hover p.label {
+    padding-top: 30px;opacity: 1;
+}
+div.menubar:hover img.icon {
+    box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, .7);
+}
