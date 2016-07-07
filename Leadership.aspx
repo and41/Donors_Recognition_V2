@@ -19,7 +19,14 @@
   <form id="form1" runat="server">
       <div id="AdvBoard" class="tabcontent">
     <asp:Repeater ID="Repeater1" runat="server">
-            <HeaderTemplate><div class="template"><table id="viewTable""></HeaderTemplate>
+            <HeaderTemplate><div class="template">
+            <div style="background: #E8E8E8;">
+                <div style="font-size: 20px;">
+                <p>Advisory Board Members in all 4 Categories</p>
+                </br>
+            </div>
+            </div>
+            <table id="viewTable""></HeaderTemplate>
             <ItemTemplate>
                 <div>
                         <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
@@ -33,7 +40,14 @@
     </div>
       <div id="ElecBoard" class="tabcontent">
     <asp:Repeater ID="Repeater2" runat="server">
-            <HeaderTemplate><div class="template"><table id="viewTable"></HeaderTemplate>
+            <HeaderTemplate><div class="template">
+            <div style="background: #E8E8E8;">
+                <div style="font-size: 20px;">
+                <p>PBAA Elected Board Members</p>
+                </br>
+            </div>
+            </div>
+            <table id="viewTable"></HeaderTemplate>
             <ItemTemplate>
                 <div class="tabletest">
                 <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">

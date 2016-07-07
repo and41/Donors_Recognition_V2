@@ -24,13 +24,33 @@ td {
         padding-right: 50px;
     }
 
-    td.HonorName {
+    td.CornerstoneName {
         padding: 0px 183px;
         text-align: center;
         font-size: 35px;
     }
-    td.HonorYear {
-        padding: 0px 10px;
+    td.PrimaryTdCSS {
+        padding: 0px 34.5px;
+        text-align: center;
+        font-size: 35px;
+    }
+    td.RoundtableTdCSS {
+        padding: 0px 88px;
+        text-align: center;
+        font-size: 35px;
+    }
+    td.SecondaryTdCSS {
+        padding: 0px 88px;
+        text-align: center;
+        font-size: 35px;
+    }
+    td.CenturyTdCSS {
+        padding: 0px 85.5px;
+        text-align: center;
+        font-size: 35px;
+    }
+    td.OtherDonorTdCSS {
+        padding: 0px 85.5px;
         text-align: center;
         font-size: 35px;
     }
@@ -45,8 +65,18 @@ ul.tab {
     width: 70.4%;
 }
 
+ul.subtab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:  #ccc;
+    width: 70.4%;
+}
+
 /* Float the list items side by side */
 ul.tab li {float: left;}
+ul.subtab li {float: left;}
 
 /* Style the links inside the list items */
 ul.tab li a {
@@ -59,11 +89,24 @@ ul.tab li a {
     font-size: 17px;
 }
 
+ul.subtab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 3px 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
 /* Change background color of links on hover */
 ul.tab li a:hover {background-color: #ddd;}
 
+ul.subtab li a:hover {background-color: #ddd;}
+
 /* Create an active/current tablink class */
 ul.tab li a:focus, .active {background-color: #ccc;}
+ul.subtab li a:focus, .active {background-color: #f1f1f1;}
 
 /* Style the tab content */
 .tabcontent {

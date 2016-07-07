@@ -22,10 +22,22 @@ public class Call_Database
     private DataTable _dtDonors;
     public DataTable dtFounders;
     private DataTable _dtFounders;
-    public DataTable dtHonorRoll;
-    private DataTable _dtHonorRoll;
     public DataTable dtScholarships;
     private DataTable _dtScholarships;
+    public DataTable dtCornerstone;
+    private DataTable _dtCornerstone;
+    public DataTable dtRoundtable;
+    private DataTable _dtRoundtable;
+    public DataTable dtPresidentsTab;
+    private DataTable _dtPresidentsTab;
+    public DataTable dtQuadrangleTab;
+    private DataTable _dtQuadrangleTab;
+    public DataTable dtBlueGoldTab;
+    private DataTable _dtBlueGoldTab;
+    public DataTable dtCenturyTab;
+    private DataTable _dtCenturyTab;
+    public DataTable dtOtherDonorsTab;
+    private DataTable _dtOtherDonorsTab;
 
     public Call_Database()
     {
@@ -33,8 +45,14 @@ public class Call_Database
         DataTable Elecdt = new DataTable();
         DataTable dtDonors = new DataTable();
         DataTable dtFounders = new DataTable();
-        DataTable dtHonorRoll = new DataTable();
         DataTable dtScholarships = new DataTable();
+        DataTable dtCornerstone = new DataTable();
+        DataTable dtRoundtable = new DataTable();
+        DataTable dtPresidentsTab = new DataTable();
+        DataTable dtQuadrangleTab = new DataTable();
+        DataTable dtBlueGoldTab = new DataTable();
+        DataTable dtCenturyTab = new DataTable();
+        DataTable dtOtherDonorsTab = new DataTable();
         LoadAdv(Advdt);
         _Advdt = Advdt;
         LoadElec(Elecdt);
@@ -43,10 +61,22 @@ public class Call_Database
         _dtDonors = dtDonors;
         LoadFounders(dtFounders);
         _dtFounders = dtFounders;
-        LoadHonorRoll(dtHonorRoll);
-        _dtHonorRoll = dtHonorRoll;
         LoadScholarships(dtScholarships);
         _dtScholarships = dtScholarships;
+        LoadRoundtable(dtRoundtable);
+        _dtRoundtable = dtRoundtable;
+        LoadCornerstone(dtCornerstone);
+        _dtCornerstone = dtCornerstone;
+        LoadPresidentsTab(dtPresidentsTab);
+        _dtPresidentsTab = dtPresidentsTab;
+        LoadQuadrangleTab(dtQuadrangleTab);
+        _dtQuadrangleTab = dtQuadrangleTab;
+        LoadBlueGoldTab(dtBlueGoldTab);
+        _dtBlueGoldTab = dtBlueGoldTab;
+        LoadCenturyTab(dtCenturyTab);
+        _dtCenturyTab = dtCenturyTab;
+        LoadOtherDonorsTab(dtOtherDonorsTab);
+        _dtOtherDonorsTab = dtOtherDonorsTab;
     }
 
     public DataTable AdvBoard
@@ -71,17 +101,48 @@ public class Call_Database
         get { return _dtFounders; }
         set { _dtFounders = value; }
     }
-    public DataTable dbHonorRoll
-    {
-        get { return _dtHonorRoll; }
-        set { _dtHonorRoll = value; }
-    }
     public DataTable dbScholarships
     {
         get { return _dtScholarships; }
         set { _dtScholarships = value; }
     }
-    
+    public DataTable dbRoundtable
+    {
+        get { return _dtRoundtable; }
+        set { _dtRoundtable = value; }
+    }
+    public DataTable dbCornerstone
+    {
+        get { return _dtCornerstone; }
+        set { _dtCornerstone = value; }
+    }
+    public DataTable dbPresidentsTab
+    {
+        get { return _dtPresidentsTab; }
+        set { _dtPresidentsTab = value; }
+    }
+    public DataTable dbQuadrangleTab
+    {
+        get { return _dtQuadrangleTab; }
+        set { _dtQuadrangleTab = value; }
+    }
+    public DataTable dbBlueGoldTab
+    {
+        get { return _dtBlueGoldTab; }
+        set { _dtBlueGoldTab = value; }
+    }
+    public DataTable dbCenturyTab
+    {
+        get { return _dtCenturyTab; }
+        set { _dtCenturyTab = value; }
+    }
+    public DataTable dbOtherDonorsTab
+    {
+        get { return _dtOtherDonorsTab; }
+        set { _dtOtherDonorsTab = value; }
+    }
+
+
     public void Add(string Namebox, string Imagename, string Profiletxt)
     {
         using (SqlConnection conn = new SqlConnection(Call_Database.conn))
@@ -156,18 +217,6 @@ public void LoadAdv(DataTable Advdt)
         conn.Close();
     }
 
-    public void LoadHonorRoll(DataTable dtHonorRoll)
-    {
-        SqlConnection conn = new SqlConnection(Call_Database.conn);
-        string command = "SELECT * FROM HonorRoll";
-        SqlCommand cmd = new SqlCommand(command, conn);
-        SqlDataReader drHonorRoll;
-        conn.Open();
-        drHonorRoll = cmd.ExecuteReader();
-        dtHonorRoll.Load(drHonorRoll);
-        conn.Close();
-    }
-
     public void LoadScholarships(DataTable dtScholarships)
     {
         SqlConnection conn = new SqlConnection(Call_Database.conn);
@@ -177,6 +226,90 @@ public void LoadAdv(DataTable Advdt)
         conn.Open();
         drScholarships = cmd.ExecuteReader();
         dtScholarships.Load(drScholarships);
+        conn.Close();
+    }
+
+    public void LoadCornerstone(DataTable dtCornerstone)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM CornerstoneTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drCornerstone;
+        conn.Open();
+        drCornerstone = cmd.ExecuteReader();
+        dtCornerstone.Load(drCornerstone);
+        conn.Close();
+    }
+
+    public void LoadRoundtable(DataTable dtRoundtable)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM RoundtableTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drRoundtable;
+        conn.Open();
+        drRoundtable = cmd.ExecuteReader();
+        dtRoundtable.Load(drRoundtable);
+        conn.Close();
+    }
+
+    public void LoadPresidentsTab(DataTable dtPresidentsTab)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM PresidentsTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drPresidentsTab;
+        conn.Open();
+        drPresidentsTab = cmd.ExecuteReader();
+        dtPresidentsTab.Load(drPresidentsTab);
+        conn.Close();
+    }
+
+    public void LoadQuadrangleTab(DataTable dtQuadrangleTab)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM QuadrangleTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drQuadrangleTab;
+        conn.Open();
+        drQuadrangleTab = cmd.ExecuteReader();
+        dtQuadrangleTab.Load(drQuadrangleTab);
+        conn.Close();
+    }
+
+    public void LoadBlueGoldTab(DataTable dtBlueGoldTab)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM BlueGoldTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drBlueGoldTab;
+        conn.Open();
+        drBlueGoldTab = cmd.ExecuteReader();
+        dtBlueGoldTab.Load(drBlueGoldTab);
+        conn.Close();
+    }
+
+    public void LoadCenturyTab(DataTable dtCenturyTab)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM CenturyTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drCenturyTab;
+        conn.Open();
+        drCenturyTab = cmd.ExecuteReader();
+        dtCenturyTab.Load(drCenturyTab);
+        conn.Close();
+    }
+
+    public void LoadOtherDonorsTab(DataTable dtOtherDonorsTab)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM OtherDonorsTab";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drOtherDonorsTab;
+        conn.Open();
+        drOtherDonorsTab = cmd.ExecuteReader();
+        dtOtherDonorsTab.Load(drOtherDonorsTab);
         conn.Close();
     }
 }
