@@ -157,6 +157,17 @@ public class Call_Database
         }
     }
 
+    public void Focus(int Id)
+    {
+        using (SqlConnection conn = new SqlConnection(Call_Database.conn))
+        {
+            SqlCommand CmdSql = new SqlCommand("SELECT (name, photo, profile) FROM [donors] WHERE (Id) VALUES (@Id)", conn);
+            conn.Open();
+            CmdSql.ExecuteNonQuery();
+            conn.Close();
+        }
+    }
+
     public void Delete(int deleteId)
     {
         using (SqlConnection conn = new SqlConnection(Call_Database.conn))

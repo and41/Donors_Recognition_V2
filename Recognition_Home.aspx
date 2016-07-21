@@ -25,9 +25,9 @@
             <ItemTemplate>
                 <div>
                         <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
-                <td><asp:Label ID="SortScholar" Text='<%# Eval("Sort") %>' runat="server"></asp:Label></td>
-                <td><asp:Label ID="NameScholar" Text='<%# Eval("Name") %>' runat="server"></asp:Label></td>
-                <td><asp:Label ID="EstablishedScholar" Text='<%# Eval("Established") %>' runat="server"></asp:Label></td>
+                <td class="ScholarTd"><asp:Label ID="SortScholar" Text='<%# Eval("Sort") %>' runat="server"></asp:Label></td>
+                <td class="ScholarTd2"><asp:Label ID="NameScholar" Text='<%# Eval("Name") %>' runat="server"></asp:Label></td>
+                <td class="ScholarTd"><asp:Label ID="EstablishedScholar" Text='<%# Eval("Established") %>' runat="server"></asp:Label></td>
                         </tr>
                 </div>
             </ItemTemplate>

@@ -9,6 +9,11 @@
 * { margin: 0; padding: 0; font-family: Helvetica;
 }
 
+.LiLink {
+  color: black; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
 table {
     margin-right: 610px;
 }
@@ -16,6 +21,17 @@ table {
 td {
     font-size: 25px;
 }
+
+    td.ScholarTd {
+        font-size: 25px;
+        text-align: center;
+        padding: 5px;
+    }
+    td.ScholarTd2 {
+        font-size: 25px;
+        text-align: center;
+        width: 40%
+    }
 
     td.FounderName {
         padding-right: 300px;
@@ -35,7 +51,7 @@ td {
         font-size: 35px;
     }
     td.RoundtableTdCSS {
-        padding: 0px 88px;
+        padding: 0px 58px;
         text-align: center;
         font-size: 35px;
     }
@@ -141,6 +157,64 @@ footer {
     margin-left: 305px;
     width: 1080px;
     height: 210px;
+}
+
+div.FormBorder {
+    margin: 80px 393px;
+    width: 1080px;
+    height: 500px;
+}
+
+nav.SearchNav {
+    background-color:yellow;
+    float: left;
+    width: 225px;
+    height: 500px;
+    margin: 0;
+    overflow: hidden;
+}
+
+/*Search Box Div positioning (Searchbox Positioning)*/
+.DonorSearch {
+    padding: 19px 25px 19px 13px;
+}
+/*Search Box Size & Traits*/
+#SearchBox {
+    width: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border:solid 1px black;
+    padding:5px;
+    font-size: 18px;
+}
+
+div.DonorList {
+    padding: 0px 10px 0px 10px;
+}
+
+ul.grow {
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:solid 1px black;
+    max-height: 420px;
+    background: white;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+/* Change background color of <li> rows on hover */
+ul.grow li:hover {background-color: darkgray;}
+
+/* Create an active/current <li> row */
+ul.grow li:focus, .active {background-color: darkgray;}
+
+div.ContentDiv {
+    background-color:blue;
+    height: 500px;
+    overflow: hidden;
 }
 
 div.template {
