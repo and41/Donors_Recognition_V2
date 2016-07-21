@@ -19,48 +19,7 @@
             <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
             <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
         </div>
-        <div data-u="slides" style="cursor: default; border-radius: 10px; position: relative; top: 0px; left: 0px; width: 1280px; height: 700px; overflow: hidden;">
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/002.jpg" />
-                <img data-u="thumb" src="img/002.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/003.jpg" />
-                <img data-u="thumb" src="img/thumb-003.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/004.jpg" />
-                <img data-u="thumb" src="img/thumb-004.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/005.jpg" />
-                <img data-u="thumb" src="img/thumb-005.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/006.jpg" />
-                <img data-u="thumb" src="img/thumb-006.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/007.jpg" />
-                <img data-u="thumb" src="img/thumb-007.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/008.jpg" />
-                <img data-u="thumb" src="img/008.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/009.jpg" />
-                <img data-u="thumb" src="img/009.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/010.jpg" />
-                <img data-u="thumb" src="img/010.jpg" />
-            </div>
-            <div data-p="112.50" style="display: none;">
-                <img data-u="image" src="img/011.jpg" />
-                <img data-u="thumb" src="img/thumb-011.jpg" />
-            </div>
-        
+        <div id="SlideShowDiv" data-u="slides" runat="server" style="cursor: default; border-radius: 10px; position: relative; top: 0px; left: 0px; width: 1280px; height: 700px; overflow: hidden;">
         </div>
         <!-- Thumbnail Navigator -->
         <div u="thumbnavigator" class="jssort03" style="position:absolute;left:0px;bottom:0px;width:1280px;height:60px;" data-autocenter="1">
@@ -81,35 +40,12 @@
         <span data-u="arrowright" class="jssora02r" style="top:0px;right:8px;width:55px;height:55px;" data-autocenter="2"></span>
     </div>
 
-
-
-
-
-
-
     <footer>
         <div class="footer">
-        <a href="Home.aspx"><div class="menubar one">
-            <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label">Home</p>
-        </div></a>
-        <a href="Donors.aspx"><div class="menubar two">
+        <a href="Donor_Testimonials.aspx"><div class="menubar one">
             <img src="Images/Home_Assets/Icons/Donor_Icon.png" alt="" class="icon" />
-            <p class="label">Donors</p>
         </div></a>
-        <a href="Leadership.aspx"><div class="menubar three">
-            <img src="Images/Home_Assets/Icons/Leadership_Icon.png" alt="" class="icon" />
-            <p class="label">Leadership</p>
-        </div></a>
-        <a href="History.aspx"><div class="menubar four">
-            <img src="Images/Home_Assets/Icons/History_Icon.png" alt="" class="icon" />
-            <p class="label">History</p>
-        </div></a>
-        <a href="Gallery.aspx"><div class="menubar five">
-            <img src="Images/Home_Assets/Icons/Gallery_Icon.png" alt="" class="icon" />
-            <p class="label">Gallery</p>
-        </div></a>
-        </div>
+            </div>
     </footer>
 </body>
 </html>

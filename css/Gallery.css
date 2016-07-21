@@ -12,36 +12,33 @@
 .footer {
     height:50px;
     position: fixed;
-    bottom:170px;
+    bottom:120px;
     width: 100%;
 }
 
 footer {
-    margin: 0px auto;
-    padding-left: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 860px;
     width: 1080px;
-    height: 210px;
 }
 div.menubar {
     width: 180px; height: 210px;
     float: left;
     transition:height .4s;
 }
-div.one {
-    background-color:LightSteelBlue;
+
+img.icon {
+    display: block;
+    width: 40px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255,255,255,.3);
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 30px rgba(255, 255, 255, 0);
+    transition:box-shadow .4s;
 }
-div.two {
-    background-color:lightblue;
-}
-div.three {
-    background-color:darkgray;
-}
-div.four {
-    background-color:tan;
-}
-div.five {
-    background-color:Silver;
-}
+
 img.icon {
     display: block;
     width: 40px;
