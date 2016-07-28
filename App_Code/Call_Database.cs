@@ -39,6 +39,27 @@ public class Call_Database
     public DataTable dtOtherDonorsTab;
     private DataTable _dtOtherDonorsTab;
 
+    /// <summary>
+    /// Donors Map Datatables are as follows
+    /// </summary>
+    /// Fisher Hall
+    /// public DataTable Test;
+    /// private DataTable _Test;
+    public DataTable dtFisherHall;
+    private DataTable _dtFisherHall;
+    public DataTable dtCommons;
+    private DataTable _dtCommons;
+    public DataTable dtLibrary;
+    private DataTable _dtLibrary;
+    public DataTable dtSwartsHall;
+    private DataTable _dtSwartsHall;
+    public DataTable dtBlaisdellHall;
+    private DataTable _dtBlaisdellHall;
+    public DataTable dtFitnessCenter;
+    private DataTable _dtFitnessCenter;
+    public DataTable dtResidence;
+    private DataTable _dtResidence;
+
     public Call_Database()
     {
         DataTable Advdt = new DataTable();
@@ -77,6 +98,29 @@ public class Call_Database
         _dtCenturyTab = dtCenturyTab;
         LoadOtherDonorsTab(dtOtherDonorsTab);
         _dtOtherDonorsTab = dtOtherDonorsTab;
+
+        ///Following is new Definitions for Donors_Map
+        DataTable dtFisherHall = new DataTable();
+        LoadFisherHall(dtFisherHall);
+        _dtFisherHall = dtFisherHall;
+        DataTable dtCommons = new DataTable();
+        LoadCommons(dtCommons);
+        _dtCommons = dtCommons;
+        DataTable dtLibrary = new DataTable();
+        LoadLibrary(dtLibrary);
+        _dtLibrary = dtLibrary;
+        DataTable dtSwartsHall = new DataTable();
+        LoadSwartsHall(dtSwartsHall);
+        _dtSwartsHall = dtSwartsHall;
+        DataTable dtBlaisdellHall = new DataTable();
+        LoadBlaisdellHall(dtBlaisdellHall);
+        _dtBlaisdellHall = dtBlaisdellHall;
+        DataTable dtFitnessCenter = new DataTable();
+        LoadFitnessCenter(dtFitnessCenter);
+        _dtFitnessCenter = dtFitnessCenter;
+        DataTable dtResidence = new DataTable();
+        LoadResidence(dtResidence);
+        _dtResidence = dtResidence;
     }
 
     public DataTable AdvBoard
@@ -142,6 +186,54 @@ public class Call_Database
         set { _dtOtherDonorsTab = value; }
     }
 
+    /// <summary>
+    /// Donors Map Datatable Get:Set
+    /// </summary>
+
+    public DataTable dbFisherHall
+    {
+        get { return _dtFisherHall; }
+        set { _dtFisherHall = value; }
+    }
+
+    public DataTable dbCommons
+    {
+        get { return _dtCommons; }
+        set { _dtCommons = value; }
+    }
+
+    public DataTable dbLibrary
+    {
+        get { return _dtLibrary; }
+        set { _dtLibrary = value; }
+    }
+
+    public DataTable dbSwartsHall
+    {
+        get { return _dtSwartsHall; }
+        set { _dtSwartsHall = value; }
+    }
+
+    public DataTable dbBlaisdellHall
+    {
+        get { return _dtBlaisdellHall; }
+        set { _dtBlaisdellHall = value; }
+    }
+
+    public DataTable dbFitnessCenter
+    {
+        get { return _dtFitnessCenter; }
+        set { _dtFitnessCenter = value; }
+    }
+
+    public DataTable dbResidence
+    {
+        get { return _dtResidence; }
+        set { _dtResidence = value; }
+    }
+    /// <summary>
+    /// Basic Commands for Database
+    /// </summary>
 
     public void Add(string Namebox, string Imagename, string Profiletxt)
     {
@@ -179,6 +271,10 @@ public class Call_Database
             conn.Close();
         }
     }
+
+    /// <summary>
+    /// Database Load Connections
+    /// </summary>
 
 public void LoadAdv(DataTable Advdt)
     {
@@ -321,6 +417,91 @@ public void LoadAdv(DataTable Advdt)
         conn.Open();
         drOtherDonorsTab = cmd.ExecuteReader();
         dtOtherDonorsTab.Load(drOtherDonorsTab);
+        conn.Close();
+    }
+
+    ///Donors_Map Load Connections
+    public void LoadFisherHall(DataTable dtFisherHall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM FisherHallInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drFisherHall;
+        conn.Open();
+        drFisherHall = cmd.ExecuteReader();
+        dtFisherHall.Load(drFisherHall);
+        conn.Close();
+    }
+
+    public void LoadCommons(DataTable dtCommons)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM CommonsInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drCommons;
+        conn.Open();
+        drCommons = cmd.ExecuteReader();
+        dtCommons.Load(drCommons);
+        conn.Close();
+    }
+
+    public void LoadLibrary(DataTable dtLibrary)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM LibraryInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drLibrary;
+        conn.Open();
+        drLibrary = cmd.ExecuteReader();
+        dtLibrary.Load(drLibrary);
+        conn.Close();
+    }
+
+    public void LoadSwartsHall(DataTable dtSwartsHall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM SwartsHallInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drSwartsHall;
+        conn.Open();
+        drSwartsHall = cmd.ExecuteReader();
+        dtSwartsHall.Load(drSwartsHall);
+        conn.Close();
+    }
+
+    public void LoadBlaisdellHall(DataTable dtBlaisdellHall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM BlaisdellHallInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drBlaisdellHall;
+        conn.Open();
+        drBlaisdellHall = cmd.ExecuteReader();
+        dtBlaisdellHall.Load(drBlaisdellHall);
+        conn.Close();
+    }
+
+    public void LoadFitnessCenter(DataTable dtFitnessCenter)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM FitnessCenterInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drFitnessCenter;
+        conn.Open();
+        drFitnessCenter = cmd.ExecuteReader();
+        dtFitnessCenter.Load(drFitnessCenter);
+        conn.Close();
+    }
+
+    public void LoadResidence(DataTable dtResidence)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ResHallInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drResidence;
+        conn.Open();
+        drResidence = cmd.ExecuteReader();
+        dtResidence.Load(drResidence);
         conn.Close();
     }
 }
