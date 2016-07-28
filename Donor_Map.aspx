@@ -11,8 +11,6 @@
     <link href="~/css/Donor_Map_Menu.css" rel="stylesheet" type="text/css" />
     <link href="~/css/Donor_MapForms.css" rel="stylesheet" type="text/css" />
     <link href="css/Donor_Accordian.css" rel="stylesheet" type="text/css" />
-    <link href="css/Stroll_Css/Stroll_Layout.css" rel="stylesheet" type="text/css" />
-    <link href="css/Stroll_Css/stroll.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/jquery-ui.css"/>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -29,28 +27,38 @@
         <a class="map-point initialism BlaisdellForm_open" id="Blaisdell_Point" href="#BlaisdellForm"></a>
         <a class="map-point initialism FitnessCenterForm_open" id="FitnessCenter_Point" href="#FitnessCenterForm"></a>
         <a class="map-point initialism ResidenceForm_open" id="Residence_Point" href="#ResidenceForm"></a>
+        <a class="map-point initialism SenecaBuilding_open" id="Seneca_Point" href="#SenecaBuilding"></a>
     </div>
 
     <div id="FisherForm">
-    <iframe id="FisherId" frameborder="0" height="500" width="1080" src="FormPages/FisherHall.aspx"></iframe>
+    <iframe id="FisherId" frameborder="0" height="800" width="1080" src="FormPages/FisherHall.aspx"></iframe>
     </div>
     <div id="CommonsForm">
-    <iframe id="CommonsId" frameborder="0" height="500" width="1080" src="FormPages/Commons.aspx"></iframe>
+    <iframe id="CommonsId" frameborder="0" height="800" width="1080" src="FormPages/Commons.aspx"></iframe>
     </div>
     <div id="LibraryForm">
-    <iframe id="LibraryId" frameborder="0" height="500" width="1080" src="FormPages/Library.aspx"></iframe>
+    <iframe id="LibraryId" frameborder="0" height="800" width="1080" src="FormPages/Library.aspx"></iframe>
     </div>
     <div id="SwartsForm">
-    <iframe id="SwartsId" frameborder="0" height="500" width="1080" src="FormPages/SwartsHall.aspx"></iframe>
+    <iframe id="SwartsId" frameborder="0" height="800" width="1080" src="FormPages/SwartsHall.aspx"></iframe>
     </div>
     <div id="BlaisdellForm">
-    <iframe id="BlaisdellId" frameborder="0" height="500" width="1080" src="FormPages/BlaisdellHall.aspx"></iframe>
+    <iframe id="BlaisdellId" frameborder="0" height="800" width="1080" src="FormPages/BlaisdellHall.aspx"></iframe>
     </div>
     <div id="FitnessCenterForm">
-    <iframe id="FitnessCenterId" frameborder="0" height="500" width="1080" src="FormPages/FitnessCenter.aspx"></iframe>
+    <iframe id="FitnessCenterId" frameborder="0" height="660" width="1080" src="FormPages/FitnessCenter.aspx"></iframe>
     </div>
     <div id="ResidenceForm">
-    <iframe id="ResidenceId" frameborder="0" height="500" width="1080" src="FormPages/Residence.aspx"></iframe>
+    <iframe id="ResidenceId" frameborder="0" height="660" width="1080" src="FormPages/Residence.aspx"></iframe>
+    </div>
+    <div id="SenecaBuilding">
+    <div id="DivPopup">
+    <h1>Seneca Building</h1>
+    <p id="DivPopupId">The Seneca Building was presented to the University of Pittsburgh at by Dr. and Mrs. Robert J. Weiss in memory of Paul O. Keverline, MD and Andrew M. Keverline, MD
+    </br>
+    </br>
+    <b>Dedication Date:  12/1/2005</b></p>
+    </div>
     </div>
 
 <script>
@@ -91,12 +99,12 @@ $(document).ready(function () {
         transition: 'all 0.3s',
     });
 
+    $('#SenecaBuilding').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s',
+    });
 });
 </script>
-
-<style>
-
-</style>
 
     <footer>
         <div class="footer">

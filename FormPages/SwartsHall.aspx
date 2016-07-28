@@ -63,9 +63,33 @@
 
         </form>
         <div class="ContentDiv">
+            <div class="HeaderContentDiv">
+                <h1 class="ContentTitle">Swarts Hall</h1>
+                <b><p id="ContentParagraph1">Swarts Hall - In 1963, The Chancellor of the University charged Dr. Donald E. Swarts with the task of establishing a branch campus of the University of Pittsburgh.  Dr. Swarts, a scholar an able administrator, organized community support, obtained faculty, attracted a student body, and until July 1973 served as campus president.  This academic building bears his name in tribute to his leadership in establishing this campus and to his untiring effort in bring advantages of higher education to Northwestern Pennsylvania. <a class="initialism SwartsPopup_open" id="SwartsPopupId" href="#SwartsPopup">Read More...</a></p>
+            </div>
             <div id="accordion" runat="server">
             </div>
         </div>
+
+    <div id="SwartsPopup">
+    <div id="DivPopup">
+    <p id="DivPopupId">Swarts Hall was completely renovated during Fall 2007 and Spring 2008 to accommodate the growth in student population and the need for more faculty offices and departmental space.  The renovated facility was reopened for classes in Spring 2008.
+        </br></br>Among the new additions to the building were an 80-seat state-of-the-art distance education center, new faculty offices, and a wing dedicated to the university's expanding nurisng program. 
+        </br></br>As part of the ceremony, the Jack and Martha M. Campbell Wing and the Osborne E-Venture Lab were dedicated and the following areas were rededicated: William F. HIgie Wing, Rhea Osborne O' Kain Wing, The DeFrees Family Foundation Multi-Medica Classroom, The Stackpole-Hall Nursing Lab, and the Verizon Foundation Information Technology Laboratory</p>
+    </div>
+    </div>
+
+<script>
+$(document).ready(function () {
+
+    $('#SwartsPopup').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s',
+    });
+
+});
+</script>
+
     </div>
 </body>
 </html>

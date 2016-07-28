@@ -64,6 +64,11 @@
 
         </form>
         <div class="ContentDiv">
+            <div class="HeaderContentDiv">
+                <h1 class="ContentTitle">Frame-Westerberg Commons</h1>
+                <b><p id="ContentParagraph1">This building commemorates the service of J. Bertram Fisher, first chairman of the advisory board, University of Pittsburgh at Bradford for his support of higher education in the Bradford area and for his aid in establishing the site for this campus. A civic and industrial leader, Mr. Fisher, a commonwealth trustee of the university from 1966 to 1973, was one of the leaders of a dynamic effort to enhance the cultural and academic vitality of the area during the first decade of the existence of the campus in Bradford.</p>
+                </b>
+            </div>
             <div id="accordion" runat="server">
             </div>
         </div>

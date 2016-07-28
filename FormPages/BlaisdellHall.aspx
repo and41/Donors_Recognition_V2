@@ -63,6 +63,11 @@
 
         </form>
         <div class="ContentDiv">
+            <div class="HeaderContentDiv">
+                <h1 class="ContentTitle">Blaisdell Hall</h1>
+                <b><p id="ContentParagraph1">Named in honor of the Blaisdell Family, along with their family foundation, the Philo and Sarah Blaisdell Foundation; and their companies, Zippo Manufacturing and W.R. Case & Sons Cutlery, because of their stong interest in the University along with their tremendous level and duration of suppor to Pitt-Bradford since its establishment.  </p>
+                </b>
+            </div>
             <div id="accordion" runat="server">
             </div>
         </div>

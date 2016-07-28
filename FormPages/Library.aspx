@@ -63,6 +63,11 @@
 
         </form>
         <div class="ContentDiv">
+            <div class="HeaderContentDiv">
+                <h1 class="ContentTitle">T. Edward and Tullah Hanley Library</h1>
+                <b><p id="ContentParagraph1">T. Edward Hanley was named as a member of the honorary board of advisors. A world-famous art collector, oil executive and patron of several libraries, colleges, schools, and universities, including Pitt-Bradford and nearby St. Bonaventure, he gave a fortune away in terms of art and books during his lifetime. He was born in Bradford in 1893, the son of William Hanley, founder of Hanley Brick and Hanley Oil and Gas, and graduated from Harvard University in 1915. As a member of the Advisory Board, his financial support and donation of thousands of books were critical in establishing the Pitt-Bradford library, which was named the T. Edward and Tullah Hanley Library in March 1988. </p>
+                </b>
+            </div>
             <div id="accordion" runat="server">
             </div>
         </div>

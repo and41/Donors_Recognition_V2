@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Edit.aspx.cs" Inherits="Edit" %>
+﻿<%@ Page Language="C#" validateRequest="false" AutoEventWireup="true" CodeFile="Edit.aspx.cs" Inherits="Edit" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>

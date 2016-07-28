@@ -5,12 +5,12 @@
 #accordion {
     width: 855px;
     float: left;
-    height: 500px;
+    height: 600px;
 }
 
-    #accordion div {
-    height: 430px;
-    }
+#accordion div {
+height: 430px;
+}
 
 #tabs {
     /*width: 600px;*/

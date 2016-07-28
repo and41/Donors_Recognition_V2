@@ -18,16 +18,16 @@
 </head>
 <body>
 
-    <div id="FormFade" class="FormBorder">
+    <div id="FormFade" class="FormBorderReg">
         <form runat="server">
-        <nav class="SearchNav">
+        <nav class="SearchNavReg">
             <div class="DonorSearch">
             <input id="SearchBox" type="text" placeholder="Search" />
             </div>
             <div class="DonorList">
             <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
-                <ul id="SearchListDB" class="grow"></HeaderTemplate>
+                <ul id="SearchListDBReg" class="grow"></HeaderTemplate>
             <ItemTemplate>
                     <asp:Label ID="idLabel" Text='<%# Eval("Id") %>' runat="server" Visible="false"></asp:Label>
                     <li><asp:Linkbutton ID="LinkButton" cssClass="LiLink" Text='<%# Eval("RoomId") %>' runat="server" OnClick="SearchClick_Click"></asp:Linkbutton></a></li>              
@@ -62,7 +62,10 @@
         </script>
 
         </form>
-        <div class="ContentDiv">
+        <div class="ContentDivReg">
+            <div class="HeaderContentDivReg">
+                <h1 class="ContentTitle">Residence Halls</h1>
+            </div>
             <div id="accordion" runat="server">
             </div>
         </div>

@@ -84,6 +84,34 @@
 		        transform: scale( 0.01 );
 	}
 
+.growReg li {
+	-webkit-transition: all 600ms ease;
+	   -moz-transition: all 600ms ease;
+	    -ms-transition: all 600ms ease;
+	     -o-transition: all 600ms ease;
+	        transition: all 600ms ease;
+
+	-webkit-transform-origin: 50% 50%;
+	   -moz-transform-origin: 50% 50%;
+	    -ms-transform-origin: 50% 50%;
+	     -o-transform-origin: 50% 50%;
+	        transform-origin: 50% 50%;
+}
+	.growReg li.past {
+		-webkit-transform: scale( 0.01 );
+		   -moz-transform: scale( 0.01 );
+		    -ms-transform: scale( 0.01 );
+		     -o-transform: scale( 0.01 );
+		        transform: scale( 0.01 );
+	}
+	.growReg li.future {
+		-webkit-transform: scale( 0.01 );
+		   -moz-transform: scale( 0.01 );
+		    -ms-transform: scale( 0.01 );
+		     -o-transform: scale( 0.01 );
+		        transform: scale( 0.01 );
+	}
+
 
 /**
  * Flip styles

@@ -53,6 +53,33 @@
             transform: scale(1);
 }
 
+#DivPopup {
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:solid 2px black;
+    max-height: 800px;
+    max-width: 800px;
+    background: white;
+    -webkit-transform: scale(0.8);
+       -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+
+    color: black;
+    padding: 10px;
+}
+
+#DivPopupId {
+    font-size: 25px;
+}
+
+.popup_visible #SwartsPopup{
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
 #BlaisdellForm {
     -webkit-transform: scale(0.8);
        -moz-transform: scale(0.8);
@@ -142,9 +169,38 @@ td {
     }
 
 div.FormBorder {
+    position: relative;
+    width: 1080px;
+    height: 800px;
+}
+
+div.FormBorderReg {
+    position: relative;
     width: 1080px;
     height: 500px;
-    z-index: 1;
+}
+
+div.HeaderContentDiv {
+    background-color: white;
+    width: 855px;
+    height: 200px;
+    padding-bottom: 20px;
+}
+
+div.HeaderContentDivReg {
+    background-color: white;
+    width: 855px;
+    padding-bottom: 20px;
+}
+
+h1.ContentTitle {
+    text-align: center;
+    padding-top: 10px;
+}
+
+#ContentParagraph1{
+    padding: 10px;
+    font-size:larger;
 }
 
 #FormFade {
@@ -159,20 +215,37 @@ nav.SearchNav {
     background-color: transparent;
     float: left;
     width: 225px;
-    height: 500px;
+    height: 720px;
     margin: 0;
     overflow: hidden;
 }
 
+nav.SearchNavReg {
+    background-color: transparent;
+    float: left;
+    width: 225px;
+    height: 565px;
+    margin: 0;
+    overflow: hidden;
+}
+
+#SearchListDB {
+    max-height: 660px;
+}
+
+#SearchListDBReg {
+    max-height: 500px;
+}
+
 /*Search Box Div positioning (Searchbox Positioning)*/
 .DonorSearch {
-    padding: 19px 25px 19px 13px;
+    padding: 10px 25px 19px 13px;
 }
 /*Search Box Size & Traits*/
 #SearchBox {
     width: 100%;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
     border:solid 1px black;
     padding:5px;
     font-size: 18px;
@@ -186,7 +259,6 @@ ul.grow {
     -moz-border-radius: 10px;
     border-radius: 10px;
     border:solid 1px black;
-    max-height: 420px;
     background: white;
 }
 
@@ -202,8 +274,12 @@ ul.grow li:hover {background-color: darkgray;}
 ul.grow li:focus, .active {background-color: darkgray;}
 
 div.ContentDiv {
-    background-color:blue;
-    height: 500px;
+    height: 720px;
+    overflow: hidden;
+}
+
+div.ContentDivReg {
+    height: 564px;
     overflow: hidden;
 }
 

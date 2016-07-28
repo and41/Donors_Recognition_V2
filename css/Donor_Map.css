@@ -145,6 +145,11 @@ li.active a, a:hover, a:active {
     left: 64.1%;
 }
 
+#Seneca_Point {
+    top: 205%;
+    left: 70.75%;
+}
+
 .distribution-map .map-point {
   cursor: pointer;
   outline: none;
