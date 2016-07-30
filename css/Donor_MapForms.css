@@ -106,67 +106,119 @@
             transform: scale(1);
 }
 
+#OutdoorsStone {
+    -webkit-transform: scale(0.8);
+       -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+}
+.popup_visible #OutdoorsStone {
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+}
+
+#OutdoorsForm {
+    -webkit-transform: scale(0.8);
+       -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.popup_visible #OutdoorsForm {
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+#ChapelForm {
+    -webkit-transform: scale(0.8);
+       -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+            transform: scale(0.8);
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.popup_visible #ChapelForm {
+    -webkit-transform: scale(1);
+       -moz-transform: scale(1);
+        -ms-transform: scale(1);
+            transform: scale(1);
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 .LiLink {
   color: black; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
 
-table {
-    margin-right: 610px;
+table
+        {
+            font-size: 18px;
+            border-collapse: collapse;
+            display: block;
+            float: left;
+        }
+
+#viewTable
+        {
+            font-size: 18px;
+            border-collapse: collapse;
+            display: block;
+            width: 100%;
+        }
+
+.ChapelWall
+        {
+            font-size: 18px;
+            border-collapse: collapse;
+            display: block;
+            float: left;
+        }
+
+    .ChapelWall td {
+            width: 287px;
+    }
+
+.ChapelWall tr:first-child{
+    background: yellow;
 }
 
-td {
-    font-size: 25px;
+#viewTable tr:first-child {
+    white-space:nowrap;
 }
 
-    td.ScholarTd {
-        font-size: 25px;
-        text-align: center;
-        padding: 5px;
+    table caption {
+        font-weight: bold;
     }
-    td.ScholarTd2 {
-        font-size: 25px;
-        text-align: center;
-        width: 40%
-    }
+        table th
+        {
+            color: #333;
+            font-weight: bold;
+        }
+        table th, table td
+        {
+            border: 1px solid black;
+            padding: 10px 10px 10px 10px;
+            text-align: center;
+        }
 
-    td.FounderName {
-        padding-right: 300px;
-    }
-    td.FounderStatus {
-        padding-right: 50px;
-    }
-
-    td.CornerstoneName {
-        padding: 0px 183px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.PrimaryTdCSS {
-        padding: 0px 34.5px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.RoundtableTdCSS {
-        padding: 0px 58px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.SecondaryTdCSS {
-        padding: 0px 88px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.CenturyTdCSS {
-        padding: 0px 85.5px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.OtherDonorTdCSS {
-        padding: 0px 85.5px;
-        text-align: center;
-        font-size: 35px;
-    }
+tr.rowOdd {
+    background: #E8E8E8;
+}
+tr.rowEven {
+    background: #C0C0C0;
+}
 
 div.FormBorder {
     position: relative;
@@ -281,18 +333,4 @@ div.ContentDiv {
 div.ContentDivReg {
     height: 564px;
     overflow: hidden;
-}
-
-div.template {
-    margin-right: 453px;
-    height: 610px;
-    overflow-y: scroll;
-}
-
-div.leaderdiv {
-    float:none;
-    height: 400px;
-    width: auto;
-    padding-left: 390px;
-    margin-top: 60px;
 }

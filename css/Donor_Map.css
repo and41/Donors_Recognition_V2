@@ -150,6 +150,16 @@ li.active a, a:hover, a:active {
     left: 70.75%;
 }
 
+#Outdoor_Point {
+    top:1325%;
+    left:41%
+}
+
+#Chapel_Point {
+    top:1690%;
+    left:31.4%
+}
+
 .distribution-map .map-point {
   cursor: pointer;
   outline: none;

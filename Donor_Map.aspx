@@ -7,9 +7,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="~/css/Donor_Map.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/Donor_Map_Menu.css" rel="stylesheet" type="text/css" />
-    <link href="~/css/Donor_MapForms.css" rel="stylesheet" type="text/css" />
+    <link href="css/Donor_Map.css" rel="stylesheet" type="text/css" />
+    <link href="css/Donor_Map_Menu.css" rel="stylesheet" type="text/css" />
+    <link href="css/Donor_MapForms.css" rel="stylesheet" type="text/css" />
     <link href="css/Donor_Accordian.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/jquery-ui.css"/>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -28,6 +28,8 @@
         <a class="map-point initialism FitnessCenterForm_open" id="FitnessCenter_Point" href="#FitnessCenterForm"></a>
         <a class="map-point initialism ResidenceForm_open" id="Residence_Point" href="#ResidenceForm"></a>
         <a class="map-point initialism SenecaBuilding_open" id="Seneca_Point" href="#SenecaBuilding"></a>
+        <a class="map-point initialism OutdoorsForm_open" id="Outdoor_Point" href="#OutdoorsForm"></a>
+        <a class="map-point initialism ChapelForm_open" id="Chapel_Point" href="#ChapelForm"></a>
     </div>
 
     <div id="FisherForm">
@@ -49,7 +51,7 @@
     <iframe id="FitnessCenterId" frameborder="0" height="660" width="1080" src="FormPages/FitnessCenter.aspx"></iframe>
     </div>
     <div id="ResidenceForm">
-    <iframe id="ResidenceId" frameborder="0" height="660" width="1080" src="FormPages/Residence.aspx"></iframe>
+    <iframe id="ResidenceId" frameborder="0" height="660" width="1454" src="FormPages/Residence.aspx"></iframe>
     </div>
     <div id="SenecaBuilding">
     <div id="DivPopup">
@@ -59,6 +61,12 @@
     </br>
     <b>Dedication Date:  12/1/2005</b></p>
     </div>
+    </div>
+    <div id="OutdoorsForm">
+    <iframe id="OutdoorsId" frameborder="0" height="660" width="1620" src="FormPages/Outdoors.aspx"></iframe>
+    </div>
+    <div id="ChapelForm">
+    <iframe id="ChapelId" frameborder="0" height="660" width="1545" src="FormPages/Chapel.aspx"></iframe>
     </div>
 
 <script>
@@ -100,6 +108,16 @@ $(document).ready(function () {
     });
 
     $('#SenecaBuilding').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s',
+    });
+
+    $('#OutdoorsForm').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s',
+    });
+
+    $('#ChapelForm').popup({
         pagecontainer: '.container',
         transition: 'all 0.3s',
     });

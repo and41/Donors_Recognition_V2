@@ -29,10 +29,7 @@
                 <td><asp:LinkButton ID ="editLink" Text="Edit" runat="server"></asp:LinkButton></td>
                 </tr>
                 </div>
-
             </ItemTemplate>
-
-
             <FooterTemplate></table></FooterTemplate>
 
         </asp:Repeater>

@@ -1,0 +1,89 @@
+﻿* { margin: 0; padding: 0; font-family: Helvetica;
+}
+
+.FormWrap {
+    width: 1545px;
+    background: #f1f1f1;
+}
+
+.Formdiv {
+    background-color: #f1f1f1;
+    border-bottom: solid 1px black;
+    border-left: 1px solid black;
+    width: auto;
+}
+
+.FormTitle {
+    background-color: #f1f1f1;
+    border-bottom: solid 1px black;
+    width: auto;
+}
+
+    .FormTitle h2 {
+        padding: 10px 10px 10px 10px;
+    }
+
+#ChapelTitle {
+    text-align: center;
+}
+
+/* Style the list */
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: auto;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left; padding: 5px; border-right: solid 1px black;}
+
+    ul.tab li:first-child {
+        border-left: 1px solid black;
+    }
+
+/* Style the links inside the list items */
+ul.tab li a {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+#ChapelBuildings td{
+    width: 772.5px;
+}
+
+#ChairsTable td{
+    width: 1545px;
+}
+
+/* Change background color of links on hover */
+ul.tab li:hover {background-color: #ddd;}
+/* Create an active/current tablink class */
+ul.tab li:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
+    overflow: hidden;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

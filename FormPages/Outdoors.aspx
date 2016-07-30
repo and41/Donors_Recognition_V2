@@ -5,21 +5,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="~/css/Donor_MapForms.css" rel="stylesheet" type="text/css" />
-    <link href="../css/Donor_Accordian.css" rel="stylesheet" type="text/css" />
+    <link href="../css/Donor_MapForms.css" rel="stylesheet" type="text/css" />
     <link href="../css/Stroll_Css/Stroll_Layout.css" rel="stylesheet" type="text/css" />
     <link href="../css/Stroll_Css/stroll.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../css/jquery-ui.css"/>
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="../Javascript/Donor_JS/Donor_JS.js"></script>
-    <script src="../Javascript/Search_JS/jquery.quicksearch.js"></script>
     <script src="../Javascript/Popup_JS/jquery.popupoverlay.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
+      <div id="AdvBoard" class="tabcontent">
+    <asp:Repeater ID="Repeater1" runat="server">
+            <HeaderTemplate>
+            <table id="viewTable""></HeaderTemplate>
+            <ItemTemplate>
+                <div>
+                <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
+                <td><asp:Label Text='<%# Eval("Location") %>' runat="server"></asp:Label></td>
+                <td><asp:Label Text='<%# Eval("Donor Name") %>' runat="server"></asp:Label></td>
+                <td><asp:Label Text='<%# Eval("Name of Area") %>' runat="server"></asp:Label></td>
+                <td><asp:Label Text='<%# Eval("Wording on Plaque") %>' runat="server"></asp:Label></td>
+                <td><asp:Label Text='<%# Eval("Dedication Date") %>' runat="server"></asp:Label></td>
+                </tr>
+                </div>
+            </ItemTemplate>
+            <FooterTemplate></table></FooterTemplate>
+        </asp:Repeater>
     </div>
     </form>
 
@@ -32,6 +44,16 @@
     </p>
     </div>
     </div>
+
+<script>
+    $(document).ready(function () {
+
+        $('#OutdoorsStone').popup({
+            pagecontainer: '.container',
+            transition: 'all 0.3s',
+        });
+    });
+</script>
 
 </body>
 </html>

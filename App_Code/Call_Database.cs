@@ -59,6 +59,25 @@ public class Call_Database
     private DataTable _dtFitnessCenter;
     public DataTable dtResidence;
     private DataTable _dtResidence;
+    public DataTable dtOutdoors;
+    private DataTable _dtOutdoors;
+    public DataTable dtChapelBuilding;
+    private DataTable _dtChapelBuilding;
+    /// <summary>
+    /// Chapel Wall
+    /// </summary>
+    public DataTable dtHarmonyWall;
+    private DataTable _dtHarmonyWall;
+    public DataTable dtHopeWall;
+    private DataTable _dtHopeWall;
+    public DataTable dtFaithWall;
+    private DataTable _dtFaithWall;
+    public DataTable dtGraceWall;
+    private DataTable _dtGraceWall;
+    public DataTable dtPeaceWall;
+    private DataTable _dtPeaceWall;
+    public DataTable dtChairsBenches;
+    private DataTable _dtChairsBenches;
 
     public Call_Database()
     {
@@ -121,6 +140,30 @@ public class Call_Database
         DataTable dtResidence = new DataTable();
         LoadResidence(dtResidence);
         _dtResidence = dtResidence;
+        DataTable dtOutdoors = new DataTable();
+        LoadOutdoors(dtOutdoors);
+        _dtOutdoors = dtOutdoors;
+        DataTable dtChapelBuilding = new DataTable();
+        LoadChapelBuilding(dtChapelBuilding);
+        _dtChapelBuilding = dtChapelBuilding;
+        DataTable dtHarmonyWall = new DataTable();
+        LoadHarmonyWall(dtHarmonyWall);
+        _dtHarmonyWall = dtHarmonyWall;
+        DataTable dtHopeWall = new DataTable();
+        LoadHopeWall(dtHopeWall);
+        _dtHopeWall = dtHopeWall;
+        DataTable dtFaithWall = new DataTable();
+        LoadFaithWall(dtFaithWall);
+        _dtFaithWall = dtFaithWall;
+        DataTable dtGraceWall = new DataTable();
+        LoadGraceWall(dtGraceWall);
+        _dtGraceWall = dtGraceWall;
+        DataTable dtPeaceWall = new DataTable();
+        LoadPeaceWall(dtPeaceWall);
+        _dtPeaceWall = dtPeaceWall;
+        DataTable dtChairsBenches = new DataTable();
+        LoadChairsBenches(dtChairsBenches);
+        _dtChairsBenches = dtChairsBenches;
     }
 
     public DataTable AdvBoard
@@ -231,6 +274,59 @@ public class Call_Database
         get { return _dtResidence; }
         set { _dtResidence = value; }
     }
+
+    public DataTable dbOutdoors
+    {
+        get { return _dtOutdoors; }
+        set { _dtOutdoors = value; }
+    }
+
+    /// <summary>
+    /// Chapel Datatable Sets
+    /// </summary>
+
+    public DataTable dbChapelBuilding
+    {
+        get { return _dtChapelBuilding; }
+        set { _dtChapelBuilding = value; }
+    }
+
+    public DataTable dbHarmonyWall
+    {
+        get { return _dtHarmonyWall; }
+        set { _dtHarmonyWall = value; }
+    }
+
+    public DataTable dbHopeWall
+    {
+        get { return _dtHopeWall; }
+        set { _dtHopeWall = value; }
+    }
+
+    public DataTable dbFaithWall
+    {
+        get { return _dtFaithWall; }
+        set { _dtFaithWall = value; }
+    }
+
+    public DataTable dbGraceWall
+    {
+        get { return _dtGraceWall; }
+        set { _dtGraceWall = value; }
+    }
+
+    public DataTable dbPeaceWall
+    {
+        get { return _dtPeaceWall; }
+        set { _dtPeaceWall = value; }
+    }
+
+    public DataTable dbChairsBenches
+    {
+        get { return _dtChairsBenches; }
+        set { _dtChairsBenches = value; }
+    }
+
     /// <summary>
     /// Basic Commands for Database
     /// </summary>
@@ -502,6 +598,106 @@ public void LoadAdv(DataTable Advdt)
         conn.Open();
         drResidence = cmd.ExecuteReader();
         dtResidence.Load(drResidence);
+        conn.Close();
+    }
+
+    public void LoadOutdoors(DataTable dtOutdoors)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM OutdoorsInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drOutdoors;
+        conn.Open();
+        drOutdoors = cmd.ExecuteReader();
+        dtOutdoors.Load(drOutdoors);
+        conn.Close();
+    }
+
+    public void LoadChapelBuilding(DataTable dtChapelBuilding)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Building' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelBuilding;
+        conn.Open();
+        drChapelBuilding = cmd.ExecuteReader();
+        dtChapelBuilding.Load(drChapelBuilding);
+        conn.Close();
+    }
+
+    /// <summary>
+    /// Chapel Donors Wall
+    /// </summary>
+
+    public void LoadHarmonyWall(DataTable dtHarmonyWall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Donors' AND Level = 'Harmony' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelWall;
+        conn.Open();
+        drChapelWall = cmd.ExecuteReader();
+        dtHarmonyWall.Load(drChapelWall);
+        conn.Close();
+    }
+
+    public void LoadHopeWall(DataTable dtHopeWall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Donors' AND Level = 'Hope' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelWall;
+        conn.Open();
+        drChapelWall = cmd.ExecuteReader();
+        dtHopeWall.Load(drChapelWall);
+        conn.Close();
+    }
+
+    public void LoadFaithWall(DataTable dtFaithWall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Donors' AND Level = 'Faith' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelWall;
+        conn.Open();
+        drChapelWall = cmd.ExecuteReader();
+        dtFaithWall.Load(drChapelWall);
+        conn.Close();
+    }
+
+    public void LoadGraceWall(DataTable dtGraceWall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Donors' AND Level = 'Grace' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelWall;
+        conn.Open();
+        drChapelWall = cmd.ExecuteReader();
+        dtGraceWall.Load(drChapelWall);
+        conn.Close();
+    }
+
+    public void LoadPeaceWall(DataTable dtPeaceWall)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Sort = 'Donors' AND Level = 'Peace' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelWall;
+        conn.Open();
+        drChapelWall = cmd.ExecuteReader();
+        dtPeaceWall.Load(drChapelWall);
+        conn.Close();
+    }
+    
+    public void LoadChairsBenches(DataTable dtChairsBenches)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo WHERE Level = 'Chairs & Benches' ORDER BY ViewOrder";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapel;
+        conn.Open();
+        drChapel = cmd.ExecuteReader();
+        dtChairsBenches.Load(drChapel);
         conn.Close();
     }
 }
