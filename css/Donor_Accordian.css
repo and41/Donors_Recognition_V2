@@ -12,6 +12,10 @@
 height: 430px;
 }
 
+.accordion-Testimonials div{
+    height: 490px !important;
+}
+
 #tabs {
     /*width: 600px;*/
     min-height: 600px;

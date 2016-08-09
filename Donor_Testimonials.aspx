@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Donors</title>
-    <link href="css/Testimonial.css" rel="stylesheet" type="text/css" />
     <link href="css/Donor_Accordian.css" rel="stylesheet" type="text/css" />
+    <link href="css/Testimonial.css" rel="stylesheet" type="text/css" />
     <link href="css/Stroll_Css/Stroll_Layout.css" rel="stylesheet" type="text/css" />
     <link href="css/Stroll_Css/stroll.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/jquery-ui.css"/>
@@ -17,27 +17,27 @@
 </head>
 
 <body>
-    
-    <a href="Edit.aspx">Back to Testimonials</a>
-    <div class="FormBorder">
+
+    <a href="Content_Management.aspx">To Edit</a>
+    <div id="FormFade-Testimonials" class="FormBorder-Testimonials">
         <form runat="server">
-        <nav class="SearchNav">
-            <div class="DonorSearch">
-            <input id="SearchBox" type="text" placeholder="Search" />
+        <nav class="SearchNav-Testimonials">
+            <div class="DonorSearch-Testimonials">
+            <input id="SearchBox-Testimonials" type="text" placeholder="Search" />
             </div>
-            <div class="DonorList">
+            <div class="DonorList-Testimonials">
             <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate>
-                <ul id="SearchListDB" class="grow"></HeaderTemplate>
+                <ul id="SearchListDB-Testimonials" class="grow"></HeaderTemplate>
             <ItemTemplate>
                     <asp:Label ID="idLabel" Text='<%# Eval("Id") %>' runat="server" Visible="false"></asp:Label>
-                    <li><asp:Linkbutton cssClass="LiLink" Text='<%# Eval("Name") %>' runat="server" OnClick="SearchClick_Click"></asp:Linkbutton></a></li>              
+                    <li><asp:Linkbutton ID="LinkButton" cssClass="LiLink" Text='<%# Eval("Name") %>' runat="server" OnClick="SearchClick_Click"></asp:Linkbutton></a></li>              
             </ItemTemplate>
             <FooterTemplate></ul></FooterTemplate>
             </asp:Repeater>
             </div>
             <div>
-            <script src="Javascript/Stroll_JS/stroll.js"></script>
+            <script src="../Javascript/Stroll_JS/stroll.js"></script>
             <script>
 			var list = document.querySelector( 'ul' );
 			var type = window.location.search.slice( 1 ) || 'grow';
@@ -58,25 +58,25 @@
 
         <script>
         $(document).ready(function () {
-        $('input#SearchBox').quicksearch('ul#SearchListDB li');
+            $('input#SearchBox-Testimonials').quicksearch('ul#SearchListDB-Testimonials li');
         });
         </script>
 
         </form>
-        <div class="ContentDiv">
-            <div id="accordion" runat="server">
+        <div>
+            <div id="accordion" class="accordion-Testimonials" runat="server">
             </div>
         </div>
     </div>
 
-    <footer>
-        <div class="footer">
-        <a href="Recognition_Home.aspx"><div class="menubar one">
+    <footer class="FooterTab-Testimonials">
+        <div class="footer-Testimonials">
+        <a href="Default.aspx"><div class="menubar one">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
             <p class="label">Recognition</p>
         </div></a>
         <a href="Donor_Gallery.aspx"><div class="menubar seven">
-            <img src="Images/Home_Assets/Icons/Map_Icon.png" alt="" class="icon" />
+            <img src="Images/Home_Assets/Icons/Gallery_Icon.png" alt="" class="icon" />
             <p class="label">Gallery</p>
         </div></a>
         </div>

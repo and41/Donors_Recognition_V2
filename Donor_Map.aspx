@@ -51,7 +51,7 @@
     <iframe id="FitnessCenterId" frameborder="0" height="660" width="1080" src="FormPages/FitnessCenter.aspx"></iframe>
     </div>
     <div id="ResidenceForm">
-    <iframe id="ResidenceId" frameborder="0" height="660" width="1454" src="FormPages/Residence.aspx"></iframe>
+    <iframe id="ResidenceId" frameborder="0" height="660" width="1080" src="FormPages/Residence.aspx"></iframe>
     </div>
     <div id="SenecaBuilding">
     <div id="DivPopup">
@@ -126,8 +126,8 @@ $(document).ready(function () {
 
     <footer>
         <div class="footer">
-        <a href="Recognition_Home.aspx"><div class="menubar one">
-            <img src="Images/Home_Assets/Icons/Donor_Icon.png" alt="" class="icon" />
+        <a href="Default.aspx"><div class="menubar one">
+            <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
         </div></a>
             </div>
     </footer>

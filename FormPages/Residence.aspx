@@ -57,7 +57,7 @@
 
         <script>
         $(document).ready(function () {
-        $('input#SearchBox').quicksearch('ul#SearchListDB li');
+        $('input#SearchBox').quicksearch('ul#SearchListDBReg li');
         });
         </script>
 

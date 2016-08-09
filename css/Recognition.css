@@ -46,27 +46,27 @@ td {
         font-size: 35px;
     }
     td.PrimaryTdCSS {
-        padding: 0px 34.5px;
+        padding: 0px 100px;
         text-align: center;
         font-size: 35px;
     }
     td.RoundtableTdCSS {
-        padding: 0px 58px;
+        padding: 0px 100px;
         text-align: center;
         font-size: 35px;
     }
     td.SecondaryTdCSS {
-        padding: 0px 88px;
+        padding: 0px 100px;
         text-align: center;
         font-size: 35px;
     }
     td.CenturyTdCSS {
-        padding: 0px 85.5px;
+        padding: 0px 100px;
         text-align: center;
         font-size: 35px;
     }
     td.OtherDonorTdCSS {
-        padding: 0px 85.5px;
+        padding: 0px 100px;
         text-align: center;
         font-size: 35px;
     }
@@ -78,7 +78,7 @@ ul.tab {
     padding: 0;
     overflow: hidden;
     background-color: #f1f1f1;
-    width: 70.4%;
+    width: 71.4%;
 }
 
 ul.subtab {
@@ -87,7 +87,7 @@ ul.subtab {
     padding: 0;
     overflow: hidden;
     background-color:  #ccc;
-    width: 70.4%;
+    width: 71.4%;
 }
 
 /* Float the list items side by side */
@@ -154,7 +154,7 @@ ul.subtab li a:focus, .active {background-color: #f1f1f1;}
 }
 
 footer {
-    margin-left: 305px;
+    margin: 100px 0px 0px 240px;
     width: 1080px;
     height: 210px;
 }
@@ -218,16 +218,16 @@ div.ContentDiv {
 }
 
 div.template {
-    margin-right: 453px;
+    margin-right: 428px;
     height: 610px;
     overflow-y: scroll;
 }
 
 div.leaderdiv {
     float:none;
-    height: 400px;
+    height: 480px;
     width: auto;
-    padding-left: 390px;
+    padding-left: 420px;
     margin-top: 60px;
 }
 
@@ -256,6 +256,9 @@ div.six {
 }
 div.seven {
     background-color: palevioletred;
+}
+div.eight {
+    background-color: lightcoral
 }
 
 img.icon {

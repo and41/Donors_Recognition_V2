@@ -63,6 +63,8 @@ public class Call_Database
     private DataTable _dtOutdoors;
     public DataTable dtChapelBuilding;
     private DataTable _dtChapelBuilding;
+    public DataTable dtChapel;
+    private DataTable _dtChapel;
     /// <summary>
     /// Chapel Wall
     /// </summary>
@@ -164,6 +166,9 @@ public class Call_Database
         DataTable dtChairsBenches = new DataTable();
         LoadChairsBenches(dtChairsBenches);
         _dtChairsBenches = dtChairsBenches;
+        DataTable dtChapel = new DataTable();
+        LoadChapel(dtChapel);
+        _dtChapel = dtChapel;
     }
 
     public DataTable AdvBoard
@@ -285,6 +290,12 @@ public class Call_Database
     /// Chapel Datatable Sets
     /// </summary>
 
+    public DataTable dbChapel
+    {
+        get { return _dtChapel; }
+        set { _dtChapel = value; }
+    }
+
     public DataTable dbChapelBuilding
     {
         get { return _dtChapelBuilding; }
@@ -330,49 +341,726 @@ public class Call_Database
     /// <summary>
     /// Basic Commands for Database
     /// </summary>
-
-    public void Add(string Namebox, string Imagename, string Profiletxt)
+    /// Universal DELETE Method
+    public void Delete(int deleteId, string Action)
     {
         using (SqlConnection conn = new SqlConnection(Call_Database.conn))
         {
-            SqlCommand CmdSql = new SqlCommand("INSERT INTO [donors] (name, photo, profile) VALUES (@name, @photo, @profile)", conn);
-            conn.Open();
-            CmdSql.Parameters.AddWithValue("@Name", Namebox);
-            CmdSql.Parameters.AddWithValue("@photo", "Images/dbImages/" + Imagename);
-            CmdSql.Parameters.AddWithValue("@profile", Profiletxt);
-            CmdSql.ExecuteNonQuery();
-            conn.Close();
+            using (SqlCommand CmdSql = new SqlCommand("ProcDELETE"))
+            {
+                CmdSql.CommandType = CommandType.StoredProcedure;
+                CmdSql.Parameters.AddWithValue("@Action", Action);
+                CmdSql.Parameters.AddWithValue("@ProcedureId", deleteId);
+                CmdSql.Connection = conn;
+                conn.Open();
+                CmdSql.ExecuteNonQuery();
+                conn.Close();
+            }
         }
     }
-
-    public void Focus(int Id)
+    
+    /// Universal INSERT Method
+    public void FormINSERT(string Action = null, string FormVar1 = null, string FormVar2 = null, string FormVar3 = null, string FormVar4 = null, string FormVar5 = null, int FormInt1 = 0, int FormInt2 = 0, int FormInt3 = 0, float FormFloat1 = 0)
     {
         using (SqlConnection conn = new SqlConnection(Call_Database.conn))
         {
-            SqlCommand CmdSql = new SqlCommand("SELECT (name, photo, profile) FROM [donors] WHERE (Id) VALUES (@Id)", conn);
-            conn.Open();
-            CmdSql.ExecuteNonQuery();
-            conn.Close();
+            //Testimonials Page INSERT
+            if (Action == "DonorsINSERT")
+            {
+                SqlCommand CmdSql = new SqlCommand("INSERT INTO [donors] (name, photo, profile) VALUES (@name, @photo, @profile)", conn);
+                conn.Open();
+                CmdSql.Parameters.AddWithValue("@Name", FormVar1);
+                CmdSql.Parameters.AddWithValue("@photo", "Images/dbImages/" + FormVar2);
+                CmdSql.Parameters.AddWithValue("@profile", FormVar3);
+                CmdSql.ExecuteNonQuery();
+                conn.Close();
+            }
+            //Leadership Page INSERT
+            else if (Action == "AdvBoardINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcLeadershipADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@LeadershipName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipStatus", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+
+            }
+            else if (Action == "ElecBoardINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcLeadershipADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@LeadershipName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipYear", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            // Recognition Page INSERT
+            // SCHOLARSHIP TABLE INSERT
+            else if (Action == "ScholarshipsINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ScholarSort", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@Established", FormVar3);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            // FOUNDERS TABLE INSERT
+            else if (Action == "FoundersINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@RecStatus", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //CORNERSTONE SOCIETY TABLE INSERT
+            else if (Action == "CornerstoneTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //ROUNDTABLE SOCIETY TABLE INSERT
+            else if (Action == "RoundtableTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //PRESIDENT'S SOCIETY TABLE INSERT
+            else if (Action == "PresidentsTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //QUADRANGLE SOCIETY TABLE INSERT
+            else if (Action == "QuadrangleTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //BLUE & GOLD SOCIETY TABLE INSERT
+            else if (Action == "BlueGoldTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //CENTURY SOCIETY TABLE INSERT
+            else if (Action == "CenturyTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //OTHER DONORS TABLE INSERT
+            else if (Action == "OtherDonorsTabINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //DONORS MAP PAGE TABLES
+            //WICK-CHAPEL TABLE INSERT
+            else if (Action == "ChapelInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapLevel", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapSort", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapOrder", FormFloat1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //OUTDOORS TABLE INSERT
+            else if (Action == "OutdoorsInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapLocation", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapArea", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar4);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar5);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //FISHER HALL TABLE INSERT
+            else if (Action == "FisherHallInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //COMMONS TABLE INSERT
+            else if (Action == "CommonsInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //HANLEY LIBRARY TABLE INSERT
+            else if (Action == "LibraryInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //SWARTS HALL TABLE INSERT
+            else if (Action == "SwartsHallInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //RESIDENCE HALL TABLE INSERT
+            else if (Action == "ResHallInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //BLAISDELL HALL TABLE INSERT
+            else if (Action == "BlaisdellHallInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //FITNESS CENTER TABLE INSERT
+            else if (Action == "FitnessCenterInfoINSERT")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
-
-    public void Delete(int deleteId)
+    
+    /// Universal UPDATE Method
+    public void FormUPDATE(string Action = null, string FormVar1 = null, string FormVar2 = null, string FormVar3 = null, string FormVar4 = null, string FormVar5 = null, int FormInt1 = 0, int FormInt2 = 0, int FormInt3 = 0, float FormFloat1 = 0)
     {
         using (SqlConnection conn = new SqlConnection(Call_Database.conn))
         {
-            SqlCommand CmdSql = new SqlCommand("DELETE FROM [donors] WHERE[Id] = @deleteId",conn);
-            conn.Open();
-            CmdSql.Parameters.AddWithValue("@deleteId", deleteId);
-            CmdSql.ExecuteNonQuery();
-            conn.Close();
+            //TESTIMONIALS PAGE UPDATE
+            //DONORS TABLE UPDATE
+            if (Action == "DonorsUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcDonorADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@DonorName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@DonorPhoto", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@DonorProfile", FormVar3);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //LEADERSHIP PAGE UPDATE
+            //AdvBoard TABLE UPDATE
+            else if (Action == "AdvBoardUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcLeadershipADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipStatus", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //ElecBoard TABLE UPDATE
+            else if (Action == "ElecBoardUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcLeadershipADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@LeadershipYear", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            // Recognition Page UPDATE
+            // SCHOLARSHIP TABLE UPDATE
+            else if (Action == "ScholarshipsUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@ScholarSort", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@Established", FormVar3);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            // FOUNDERS TABLE TABLE UPDATE
+            else if (Action == "FoundersUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@RecStatus", FormVar2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //CORNERSTONE SOCIETY TABLE UPDATE
+            else if (Action == "CornerstoneTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //ROUNDTABLE SOCIETY TABLE UPDATE
+            else if (Action == "RoundtableTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //PRESIDENT'S SOCIETY TABLE UPDATE
+            else if (Action == "PresidentsTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //QUADRANGLE SOCIETY TABLE UPDATE
+            else if (Action == "QuadrangleTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //BLUE & GOLD SOCIETY TABLE UPDATE
+            else if (Action == "BlueGoldTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //CENTURY SOCIETY TABLE UPDATE
+            else if (Action == "CenturyTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //OTHER DONORS TABLE UPDATE
+            else if (Action == "OtherDonorsTabUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcRecognitionADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@RecName", FormVar1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //DONORS MAP PAGE TABLES UPDATE
+            //WICK-CHAPEL TABLE UPDATE
+            else if (Action == "ChapelInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapLevel", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapSort", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapOrder", FormFloat1);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //OUTDOORS TABLE UPDATE
+            else if (Action == "OutdoorsInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapLocation", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapArea", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar4);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar5);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //FISHER HALL TABLE UPDATE
+            else if (Action == "FisherHallInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //COMMONS TABLE UPDATE
+            else if (Action == "CommonsInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //HANLEY LIBRARY TABLE UPDATE
+            else if (Action == "LibraryInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //SWARTS HALL TABLE UPDATE
+            else if (Action == "SwartsHallInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //RESIDENCE HALL TABLE UPDATE
+            else if (Action == "ResHallInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //BLAISDELL HALL TABLE UPDATE
+            else if (Action == "BlaisdellHallInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            //FITNESS CENTER TABLE UPDATE
+            else if (Action == "FitnessCenterInfoUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcMapADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@MapId", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@MapName", FormVar2);
+                    CmdSql.Parameters.AddWithValue("@MapPlaque", FormVar3);
+                    CmdSql.Parameters.AddWithValue("@MapDate", FormVar4);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
+
 
     /// <summary>
     /// Database Load Connections
     /// </summary>
 
-public void LoadAdv(DataTable Advdt)
+    public void LoadAdv(DataTable Advdt)
     {
         SqlConnection conn = new SqlConnection(Call_Database.conn);
         string command = "SELECT * FROM AdvBoard";
@@ -698,6 +1386,18 @@ public void LoadAdv(DataTable Advdt)
         conn.Open();
         drChapel = cmd.ExecuteReader();
         dtChairsBenches.Load(drChapel);
+        conn.Close();
+    }
+
+    public void LoadChapel(DataTable dtChapel)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM ChapelInfo";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drChapelMain;
+        conn.Open();
+        drChapelMain = cmd.ExecuteReader();
+        dtChapel.Load(drChapelMain);
         conn.Close();
     }
 }

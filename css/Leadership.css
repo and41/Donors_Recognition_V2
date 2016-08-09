@@ -69,18 +69,6 @@ ul.tab li a:focus, .active {background-color: #ccc;}
     to {opacity: 1;}
 }
 
-.footer {
-    height:50px;
-    position: fixed;
-    bottom:170px;
-    width: 100%;
-}
-
-footer {
-    margin-left: 305px;
-    width: 1080px;
-    height: 210px;
-}
 div.template {
     margin-right: 453px;
     height: 500px;
@@ -93,6 +81,18 @@ div.leaderdiv {
     width: auto;
     padding-left: 410px;
     margin-top: 150px;
+}
+
+.footer {
+    height:50px;
+    position: fixed;
+    bottom:170px;
+    width: 100%;
+}
+
+footer {
+    margin: 100px 0px 0px 240px;
+    width: auto;
 }
 
 div.menubar {
@@ -120,6 +120,9 @@ div.six {
 }
 div.seven {
     background-color: palevioletred;
+}
+div.eight {
+    background-color: lightcoral
 }
 
 img.icon {

@@ -64,7 +64,7 @@
         </form>
         <div class="ContentDiv">
             <div class="HeaderContentDiv">
-                <h1 class="ContentTitle">Fisher Hall</h1>
+                <h1 class="ContentTitle">Frame-Westerberg Commons</h1>
                 <b><p id="ContentParagraph1">This building commemorates the sustained contributions made by Richard C. Frame, former minority leader of the Senate of Pennsylvania and by Victor J. Westerburg, former representative in the general assembly, to the people of this region of the Commonwealth. Their dedication and untiring efforts were instrumental in the development of the University of Pittsburgh at Bradford and their accomplishments will enrich the lives of the many students who pass through this building.</p>
                 </b>
             </div>

@@ -19,8 +19,6 @@ iframe {
     height: 650px;
 }
 
-
-
 .footer {
     height:50px;
     position: fixed;
@@ -29,10 +27,10 @@ iframe {
 }
 
 footer {
-    margin-left: 325px;
-    width: 1210px;
-    height: 210px;
+    margin: 100px 0px 0px 240px;
+    width: auto;
 }
+
 div.menubar {
     width: 180px; height: 210px;
     float: left;
@@ -42,13 +40,13 @@ div.one {
     background-color:LightSteelBlue;
 }
 div.two {
-    background-color:tan;
-}
-div.three {
     background-color:lightblue;
 }
-div.four {
+div.three {
     background-color:darkgray;
+}
+div.four {
+    background-color:tan;
 }
 div.five {
     background-color:Silver;
@@ -58,6 +56,9 @@ div.six {
 }
 div.seven {
     background-color: palevioletred;
+}
+div.eight {
+    background-color: lightcoral
 }
 
 img.icon {

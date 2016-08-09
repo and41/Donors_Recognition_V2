@@ -9,186 +9,59 @@
 * { margin: 0; padding: 0; font-family: Helvetica;
 }
 
+/*
+    Testimonials Donor Form
+*/
+
 .LiLink {
   color: black; /* blue colors for links too */
   text-decoration: inherit; /* no underline */
 }
 
-table {
-    margin-right: 610px;
-}
-
-td {
-    font-size: 25px;
-}
-
-    td.ScholarTd {
-        font-size: 25px;
-        text-align: center;
-        padding: 5px;
-    }
-    td.ScholarTd2 {
-        font-size: 25px;
-        text-align: center;
-        width: 40%
-    }
-
-    td.FounderName {
-        padding-right: 300px;
-    }
-    td.FounderStatus {
-        padding-right: 50px;
-    }
-
-    td.CornerstoneName {
-        padding: 0px 183px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.PrimaryTdCSS {
-        padding: 0px 34.5px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.RoundtableTdCSS {
-        padding: 0px 58px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.SecondaryTdCSS {
-        padding: 0px 88px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.CenturyTdCSS {
-        padding: 0px 85.5px;
-        text-align: center;
-        font-size: 35px;
-    }
-    td.OtherDonorTdCSS {
-        padding: 0px 85.5px;
-        text-align: center;
-        font-size: 35px;
-    }
-
-/* Style the list */
-ul.tab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f1f1f1;
-    width: 70.4%;
-}
-
-ul.subtab {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color:  #ccc;
-    width: 70.4%;
-}
-
-/* Float the list items side by side */
-ul.tab li {float: left;}
-ul.subtab li {float: left;}
-
-/* Style the links inside the list items */
-ul.tab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 3px 5px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-ul.subtab li a {
-    display: inline-block;
-    color: black;
-    text-align: center;
-    padding: 3px 5px;
-    text-decoration: none;
-    transition: 0.3s;
-    font-size: 17px;
-}
-
-/* Change background color of links on hover */
-ul.tab li a:hover {background-color: #ddd;}
-
-ul.subtab li a:hover {background-color: #ddd;}
-
-/* Create an active/current tablink class */
-ul.tab li a:focus, .active {background-color: #ccc;}
-ul.subtab li a:focus, .active {background-color: #f1f1f1;}
-
-/* Style the tab content */
-.tabcontent {
-    display: none;
-    border-top: none;
-    overflow: hidden;
-}
-
-.tabcontent {
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-@-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-
-.footer {
-    height:50px;
-    position: fixed;
-    bottom:170px;
-    width: 100%;
-}
-
-footer {
-    margin-left: 785px;
-    width: 1080px;
-    height: 210px;
-}
-
-div.FormBorder {
-    margin: 80px 393px;
+div.FormBorder-Testimonials {
+    position: relative;
     width: 1080px;
     height: 500px;
+    padding: 100px 0px 0px 420px;
 }
 
-nav.SearchNav {
-    background-color:yellow;
+#FormFade-Testimonials {
+  animation: fadein .6s;
+}
+
+@keyframes fadein {
+  from { opacity: 0}
+  to   { opacity: 1}
+}
+
+nav.SearchNav-Testimonials {
+    background-color: transparent;
     float: left;
     width: 225px;
-    height: 500px;
+    height: 565px;
     margin: 0;
     overflow: hidden;
+}
+
+#SearchListDB-Testimonials {
+    max-height: 500px;
 }
 
 /*Search Box Div positioning (Searchbox Positioning)*/
-.DonorSearch {
-    padding: 19px 25px 19px 13px;
+.DonorSearch-Testimonials {
+    padding: 10px 25px 19px 13px;
 }
 /*Search Box Size & Traits*/
-#SearchBox {
+#SearchBox-Testimonials {
     width: 100%;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
     border:solid 1px black;
     padding:5px;
     font-size: 18px;
 }
 
-div.DonorList {
+div.DonorList-Testimonials {
     padding: 0px 10px 0px 10px;
 }
 
@@ -196,7 +69,6 @@ ul.grow {
     -moz-border-radius: 10px;
     border-radius: 10px;
     border:solid 1px black;
-    max-height: 420px;
     background: white;
 }
 
@@ -211,24 +83,20 @@ ul.grow li:hover {background-color: darkgray;}
 /* Create an active/current <li> row */
 ul.grow li:focus, .active {background-color: darkgray;}
 
-div.ContentDiv {
-    background-color:blue;
-    height: 500px;
-    overflow: hidden;
+/*
+    Testimonials Menu
+*/
+.footer-Testimonials {
+    height:50px;
+    position: fixed;
+    bottom:170px;
+    width: 100%;
 }
 
-div.template {
-    margin-right: 453px;
-    height: 610px;
-    overflow-y: scroll;
-}
-
-div.leaderdiv {
-    float:none;
-    height: 400px;
-    width: auto;
-    padding-left: 390px;
-    margin-top: 60px;
+.FooterTab-Testimonials {
+    margin-left: 785px;
+    width: 1080px;
+    height: 210px;
 }
 
 div.menubar {

@@ -14,8 +14,8 @@
     
     <footer>
         <div class="footer">
-        <a href="Recognition_Home.aspx"><div class="menubar one">
-            <img src="Images/Home_Assets/Icons/Donor_Icon.png" alt="" class="icon" />
+        <a href="Default.aspx"><div class="menubar one">
+            <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
         </div></a>
             </div>
     </footer>

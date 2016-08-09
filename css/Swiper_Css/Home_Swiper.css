@@ -1,0 +1,19 @@
+﻿    .swiper-container {
+        width: 100%;
+    }
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        border: 3px solid darkgoldenrod;
+        width: 1080px;
+        height: 650px;
+        background-color:rgba(0, 0, 0, .8)
+    }
+
+        .swiper-slide img {
+            height: 100%;
+            max-width: 1080px;
+            display: block;
+            margin: 0 auto;
+        }

@@ -1,0 +1,93 @@
+﻿* { margin: 0; padding: 0; font-family: Helvetica;
+}
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: auto;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left; padding: 5px 0 4px 0; border-right: solid 1px black;}
+
+    ul.tab li:first-child {
+        border-left: 1px solid black;
+    }
+
+/* Style the links inside the list items */
+ul.tab li a {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    padding: 5px;
+    font-size: 17px;
+}
+
+ul.tab li:hover {background-color: #ddd;}
+/* Create an active/current tablink class */
+ul.tab li:focus, .active {background-color: #ccc; padding: 0px;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
+    overflow: hidden;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#SubmitDiv {
+    margin-top: 50px;
+    border: dashed 1px black;
+}
+
+table
+        {
+            border-collapse: collapse;
+            display: block;
+            z-index: 1;
+            width: 100%;
+        }
+    table caption {
+        font-weight: bold;
+    }
+        table th
+        {
+            color: #333;
+            font-weight: bold;
+            padding: 2px 2px 2px 2px;
+            
+        }
+        table th, table td
+        {
+            border: 1px solid black; 
+            max-width: 600px;
+        }
+tr.rowOdd {
+    background: #E8E8E8;
+}
+tr.rowEven {
+    background: #C0C0C0;
+}
+
+footer {
+    background-color: gray;
+    width: auto;
+}

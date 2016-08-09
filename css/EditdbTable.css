@@ -1,12 +1,87 @@
-﻿table
+﻿* { margin: 0; padding: 0; font-family: Helvetica;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul.tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    width: auto;
+}
+
+/* Float the list items side by side */
+ul.tab li {float: left; padding: 5px; border-right: solid 1px black;}
+
+    ul.tab li:first-child {
+        border-left: 1px solid black;
+    }
+
+/* Style the links inside the list items */
+ul.tab li a {
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+ul.tab li:hover {background-color: #ddd;}
+/* Create an active/current tablink class */
+ul.tab li:focus, .active {background-color: #ccc;}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    border-top: none;
+    overflow: hidden;
+}
+
+.tabcontent {
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+#DonorSubmit {
+    position: absolute;
+    margin-top: -150px;
+}
+
+table
         {
             border-collapse: collapse;
             display: block;
-            width: 50%;
-            float: none;
-            position: fixed;
-            margin-left: 450px;
-            top: 65px;
+            z-index: 1;
+            width: 1500px;
+            margin-left: 400px;
+            margin: 50px 100px 100px 400px
         }
     table caption {
         font-weight: bold;
@@ -21,6 +96,7 @@
         table th, table td
         {
             border: 1px solid black; 
+            max-width: 600px;
         }
 tr.rowOdd {
     background: #E8E8E8;
