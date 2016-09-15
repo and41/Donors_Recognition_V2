@@ -402,7 +402,7 @@
             <img src="Images/Home_Assets/Icons/Map_Icon.png" alt="" class="icon" />
             <p class="label">Donor Map</p>
         </div></a>
-        <a href="Alumni_Map.aspx"><div class="menubar eight">
+        <a href="Alumni_Map"><div class="menubar eight">
             <img src="Images/Home_Assets/Icons/Alum_Icon.png" alt="" class="icon" />
             <p class="label">Alumni Map</p>
         </div></a>

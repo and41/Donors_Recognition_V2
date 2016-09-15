@@ -73,7 +73,7 @@
         <div class="footer-Testimonials">
         <a href="Default.aspx"><div class="menubar one">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label">Recognition</p>
+            <p class="label">Home</p>
         </div></a>
         <a href="Donor_Gallery.aspx"><div class="menubar seven">
             <img src="Images/Home_Assets/Icons/Gallery_Icon.png" alt="" class="icon" />

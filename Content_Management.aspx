@@ -28,7 +28,7 @@
         <li><a id="LeadershipTab" href="#" class="tablinks" runat="server" onclick="openCity(event, 'LeadershipFrame')">Leadership Controls</a></li>
         <li><a id="RecognitionTab" href="#" class="tablinks" runat="server" onclick="openCity(event, 'RecognitionFrame')">Recognition Controls</a></li>
         <li><a id="MapTab" href="#" class="tablinks" runat="server" onclick="openCity(event, 'MapFrame')">Map Controls</a></li>
-        <li><a id="UploadTab" href="#" class="tablinks" runat="server">Upload Controls</a></li>
+        <li><a id="UploadTab" href="#" class="tablinks" runat="server" onclick="openCity(event, 'UploadFrame')">Upload Controls</a></li>
         <li><a href="Donor_Testimonials.aspx">Exit</a></li>
     </ul>
     <div id="TestimonialsFrame" class="tabcontent">
@@ -43,7 +43,8 @@
     <div id="MapFrame" class="tabcontent">
         <iframe id="MapFrameId" frameborder="0" height="900" width="100%" src="ContentPages/MapManagement.aspx"></iframe>
     </div>
-    <div id="UploadFrame">
+    <div id="UploadFrame" class="tabcontent">
+        <iframe id="UploadFrameId" frameborder="0" height="900" width="100%" src="ContentPages/UploadDrop.aspx"></iframe>
     </div>
     </form>
 </body>

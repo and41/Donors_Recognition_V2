@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alumni_Map.aspx.cs" Inherits="History" %>
+﻿<%--<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Alumni_Map.aspx.cs" Inherits="Alumni_Map" %>--%>
 
 <!DOCTYPE html>
 <!--
