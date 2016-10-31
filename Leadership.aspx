@@ -10,19 +10,26 @@
     <script type="text/javascript" src="Javascript/Leadership_JS/Leadership.js"></script>
 </head>
 <body onload="openCity(event, 'AdvBoard')">
-<div class="leaderdiv">
-    <ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'AdvBoard')">Advisory Board</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'ElecBoard')">Pitt Bradford Alumni Association Elected Members</a></li>
-    </ul>
 
-  <form id="form1" runat="server">
+    <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#" class="tablinks" onclick="openCity(event, 'AdvBoard')">Advisory Board</a>
+  <a href="#" class="tablinks" onclick="openCity(event, 'ElecBoard')">Pitt Bradford Alumni Association Elected Members</a>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+
+
+<div class="leaderdiv">
+
+  <form id="form1" runat="server" style="border-radius: 10px; border: 3px solid #cdb87d; margin-right: 462px;">
       <div id="AdvBoard" class="tabcontent">
     <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate><div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
-                <p>Advisory Board Members in all 4 Categories</p>
+                <h2 style="padding: 10px;"><b><center>Advisory Board Members in all 4 Categories</center></b></h2>
                 </br>
             </div>
             </div>
@@ -41,9 +48,9 @@
       <div id="ElecBoard" class="tabcontent">
     <asp:Repeater ID="Repeater2" runat="server">
             <HeaderTemplate><div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
-                <p>PBAA Elected Board Members</p>
+                <h2 style="padding: 10px;"><b><center>PBAA Elected Board Members</h2></b></center>
                 </br>
             </div>
             </div>
@@ -60,40 +67,25 @@
 </div>
         </form>
 </div>
+
+    <script>
+        /* Set the width of the side navigation to 250px */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "350px";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+
     <footer>
         <div class="footer">
         <div class="footer-div">
-        <a href="Default.aspx"><div class="menubar one">
+        <a href="Default.aspx"><div class="menubar">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label">Home</p>
-        </div></a>
-        <a href="Recognition_Home.aspx"><div class="menubar two">
-            <img src="Images/Home_Assets/Icons/Rec_Icon.png" alt="" class="icon" />
-            <p class="label">Recognition</p>
-        </div></a>
-        <a href="History.aspx"><div class="menubar three">
-            <img src="Images/Home_Assets/Icons/History_Icon.png" alt="" class="icon" />
-            <p class="label">History</p>
-        </div></a>
-        <a href="Donor_Testimonials.aspx"><div class="menubar four">
-            <img src="Images/Home_Assets/Icons/Donor_Icon.png" alt="" class="icon" />
-            <p class="label">Testimonials</p>
-        </div></a>
-        <a href="Leadership.aspx"><div class="menubar five">
-            <img src="Images/Home_Assets/Icons/Leadership_Icon.png" alt="" class="icon" />
-            <p class="label">Leadership</p>
-        </div></a>
-        <a href="Events.aspx"><div class="menubar six">
-            <img src="Images/Home_Assets/Icons/Event_Icon.png" alt="" class="icon" />
-            <p class="label">Events</p>
-        </div></a>
-        <a href="Donor_Map.aspx"><div class="menubar seven">
-            <img src="Images/Home_Assets/Icons/Map_Icon.png" alt="" class="icon" />
-            <p class="label">Donor Map</p>
-        </div></a>
-        <a href="Alumni_Map.aspx"><div class="menubar eight">
-            <img src="Images/Home_Assets/Icons/Alum_Icon.png" alt="" class="icon" />
-            <p class="label">Alumni Map</p>
+            <p class="label"></p>
         </div></a>
         </div>
         </div>

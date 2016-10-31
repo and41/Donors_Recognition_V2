@@ -19,6 +19,23 @@ iframe {
     height: 650px;
 }
 
+.HistoryDiv {
+    position: fixed;
+    margin: 50px 350px auto;
+    width: 1210px;
+    top: 0px;
+    overflow-y: scroll;
+    border-radius: 10px;
+    background: white;
+    border: 3px solid darkgoldenrod;
+    height: 650px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
 .footer {
     height:50px;
     position: fixed;
@@ -27,7 +44,7 @@ iframe {
 }
 
 footer {
-    margin: 100px 0px 0px 240px;
+    margin: 100px 0px 0px 850px;
     width: auto;
 }
 
@@ -66,7 +83,7 @@ img.icon {
     width: 40px;
     margin: 40px auto;
     padding: 20px;
-    background: rgba(255,255,255,.3);
+    background: rgba(255,255,255,.5);
     border-radius: 50%;
     box-shadow: 0px 0px 0px 30px rgba(255, 255, 255, 0);
     transition:box-shadow .4s;

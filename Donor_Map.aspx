@@ -19,6 +19,12 @@
     <script src="Javascript/Popup_JS/jquery.popupoverlay.js"></script>
 </head>
 <body>
+    <div id="Help_Popup" style="background: white; border-radius: 10px; padding: 10px; color: black; border: 2px solid black">
+        <p>Click on the blue circles to view donor recognition sites throughout the Pitt-Bradford campus.</p>
+        </br>
+        <p>Click out of this box to get started!</p>
+    </div>
+
     <div class="distribution-map">
         <a class="map-point initialism FisherForm_open" id="Fisher_Point" href="#FisherForm"></a>
         <a class="map-point initialism CommonsForm_open" id="Commons_Point" href="#CommonsForm"></a>
@@ -71,6 +77,12 @@
 
 <script>
 $(document).ready(function () {
+
+    $('#Help_Popup').popup({
+        pagecontainer: '.container',
+        transition: 'all 0.3s',
+        autoopen: true,
+    });
 
     $('#FisherForm').popup({
         pagecontainer: '.container',

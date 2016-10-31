@@ -71,13 +71,13 @@
 
     <footer class="FooterTab-Testimonials">
         <div class="footer-Testimonials">
-        <a href="Default.aspx"><div class="menubar one">
+        <a href="Default.aspx"><div class="menubar">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label">Home</p>
+            <p class="label"></p>
         </div></a>
-        <a href="Donor_Gallery.aspx"><div class="menubar seven">
+        <a href="Donor_Gallery.aspx"><div class="menubar">
             <img src="Images/Home_Assets/Icons/Gallery_Icon.png" alt="" class="icon" />
-            <p class="label">Gallery</p>
+            <p class="label"></p>
         </div></a>
         </div>
     </footer>

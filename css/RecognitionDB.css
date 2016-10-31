@@ -16,13 +16,13 @@
         }
         table th, table td
         {
-            border: 1px solid black; 
+            border: 2px solid #1c2957; 
         }
 
 tr.rowOdd {
-    background: #E8E8E8;
+    background: white;
 }
 tr.rowEven {
-    background: #C0C0C0;
+    background: white;
 }
 

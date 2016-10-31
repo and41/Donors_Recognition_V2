@@ -10,18 +10,41 @@
     <script type="text/javascript" src="Javascript/Leadership_JS/Leadership.js"></script>
 </head>
 <body onload="openCity(event, 'Scholarships')">
-    <div class="leaderdiv">
-    <ul class="tab">
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Scholarships')">Scholarships</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'FounderSoc')">Founder's Society</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'Campaign50')">Campaign 50 Donors</a></li>
-  <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Honor Roll of Donors</a></li>
-    </ul>
 
-  <form id="form1" runat="server">
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#" class="tablinks" onclick="openCity(event, 'Scholarships')">Scholarships</a>
+  <a href="#" class="tablinks" onclick="openCity(event, 'FounderSoc')">Founder's Society</a>
+  <a href="#" class="tablinks" onclick="openCity(event, 'Campaign50')">Campaign 50 Donors</a>
+  <a href="#" class="tablinks" onclick="openSecNav(), openCity(event, 'CornerstoneTab')"">Honor Roll of Donors</a>
+</div>
+
+<div id="mySecSidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeSecNav()">&larr;</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a>
+        <a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a>
+</div>
+
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+  <div class="leaderdiv">
+
+  <form id="form1" runat="server" style="border-radius: 10px; border: 3px solid #cdb87d; margin-right: 428px;">
       <div id="Scholarships" class="tabcontent">
           <asp:Repeater ID="Repeater3" runat="server">
-            <HeaderTemplate><div class="template"><table id="viewTable"></HeaderTemplate>
+            <HeaderTemplate><div class="template">
+                <div style="background: #cdb87d">
+                <div style="font-size: 20px;">
+                </br>
+                <h2 style="padding: 10px;"><center>Scholarships</center></h2>
+                </div>
+                </div>
+                <table id="viewTable"></HeaderTemplate>
             <ItemTemplate>
                 <div>
                         <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
@@ -37,7 +60,7 @@
       <div id="FounderSoc" class="tabcontent">
           <asp:Repeater ID="Repeater1" runat="server">
             <HeaderTemplate><div class="template">
-                <div style="background: #E8E8E8;">
+                <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Since its founding in 1963, the University of Pittsburgh at Bradford has been fortunate to receive the support of many
@@ -56,14 +79,14 @@
                 </br>
                 <p>All planned gifts, regardless of size, enroll the donor in the Founders' Society.</p>
                 </br>
+                <p>*Deceased</p>
                 </div>
                 </div>
                 <table id="viewTable"></HeaderTemplate>
             <ItemTemplate>
                 <div>
                         <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
-                <td class="FounderName"><asp:Label ID="FounderName" Text='<%# Eval("Name") %>' runat="server"></asp:Label></td>
-                <td class="FounderStatus"><asp:Label ID="FounderStatus" Text='<%# Eval("Status") %>' runat="server"></asp:Label></td>
+                <td class="FounderName" style="width: 100%;"><asp:Label ID="FounderName" Text='<%# Eval("Name") %>' runat="server"></asp:Label></td>
                         </tr>
                 </div>
             </ItemTemplate>
@@ -76,19 +99,8 @@
            <div id="CornerstoneTab" class="tabcontent">
                <asp:Repeater ID="Repeater2" runat="server">
             <HeaderTemplate>
-                <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>
                 <div class="template">
-                <div style="background: #E8E8E8;">
+                <div style="background: #cdb87d">
                     <div style="font-size: 20px;">
                     </br>
                     <p>Annual Giving Fund and capital gift donors of $5,000 or more in 2014-2015
@@ -120,19 +132,9 @@
       <div id="RoundtableTab" class="tabcontent">
           <asp:Repeater ID="Repeater4" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+                
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors of $2,500 to $4,999 in 2014-2015
@@ -162,19 +164,9 @@
     <div id="PresidentsTab" class="tabcontent">
           <asp:Repeater ID="Repeater5" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+                
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors of $1,000 to $2,499 in 2014-2015
@@ -204,19 +196,9 @@
     <div id="QuadrangleTab" class="tabcontent">
           <asp:Repeater ID="Repeater6" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+               
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors of $500 to $999 in 2014-2015
@@ -246,19 +228,9 @@
     <div id="BlueGoldTab" class="tabcontent">
           <asp:Repeater ID="Repeater7" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+               
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors of $300 to $499 in 2014-2015
@@ -288,19 +260,9 @@
     <div id="CenturyTab" class="tabcontent">
           <asp:Repeater ID="Repeater8" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+                
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors of $100 to $299 in 2015-2015
@@ -330,19 +292,9 @@
     <div id="OtherDonorsTab" class="tabcontent">
           <asp:Repeater ID="Repeater9" runat="server">
             <HeaderTemplate>
-            <div class="subdiv">
-                <ul class="subtab">
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CornerstoneTab')">Cornerstone Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'RoundtableTab')">Roundtable Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'PresidentsTab')">President's Society</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'QuadrangleTab')">Quadrangle Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'BlueGoldTab')">Blue & Gold</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'CenturyTab')">Century Club</a></li>
-                   <li><a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a></li>
-                </ul>
-                </div>    
+               
             <div class="template">
-            <div style="background: #E8E8E8;">
+            <div style="background: #cdb87d">
                 <div style="font-size: 20px;">
                 </br>
                 <p>Annual Giving Fund and capital gift donors up to $100 in 2014-2015
@@ -371,40 +323,36 @@
     </div>
         </form>
     </div>
+
+    <script>
+        /* Set the width of the side navigation to 250px */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function openSecNav() {
+            document.getElementById("mySecSidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeSecNav() {
+            document.getElementById("mySecSidenav").style.width = "0";
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+    </script>
+
    <footer>
         <div class="footer">
         <div class="footer-div">
-        <a href="Default.aspx"><div class="menubar one">
+        <a href="Default.aspx"><div class="menubar">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label">Home</p>
-        </div></a>
-        <a href="Recognition_Home.aspx"><div class="menubar two">
-            <img src="Images/Home_Assets/Icons/Rec_Icon.png" alt="" class="icon" />
-            <p class="label">Recognition</p>
-        </div></a>
-        <a href="History.aspx"><div class="menubar three">
-            <img src="Images/Home_Assets/Icons/History_Icon.png" alt="" class="icon" />
-            <p class="label">History</p>
-        </div></a>
-        <a href="Donor_Testimonials.aspx"><div class="menubar four">
-            <img src="Images/Home_Assets/Icons/Donor_Icon.png" alt="" class="icon" />
-            <p class="label">Testimonials</p>
-        </div></a>
-        <a href="Leadership.aspx"><div class="menubar five">
-            <img src="Images/Home_Assets/Icons/Leadership_Icon.png" alt="" class="icon" />
-            <p class="label">Leadership</p>
-        </div></a>
-        <a href="Events.aspx"><div class="menubar six">
-            <img src="Images/Home_Assets/Icons/Event_Icon.png" alt="" class="icon" />
-            <p class="label">Events</p>
-        </div></a>
-        <a href="Donor_Map.aspx"><div class="menubar seven">
-            <img src="Images/Home_Assets/Icons/Map_Icon.png" alt="" class="icon" />
-            <p class="label">Donor Map</p>
-        </div></a>
-        <a href="Alumni_Map"><div class="menubar eight">
-            <img src="Images/Home_Assets/Icons/Alum_Icon.png" alt="" class="icon" />
-            <p class="label">Alumni Map</p>
+            <p class="label"></p>
         </div></a>
         </div>
         </div>

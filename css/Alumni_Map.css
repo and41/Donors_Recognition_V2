@@ -6,9 +6,16 @@
 }
 
 body {
-  width: 100%;
+  width: 90%;
   height: 900px;
-  margin: 10px auto;
-  padding: 0 50px !important;
-  background-size: 1500px !important;
+}
+
+img {
+    margin-left: 165px;
+    width: 87.5%;
+}
+
+.footer {
+    z-index: 1;
+    margin-left: 175px;
 }
