@@ -71,6 +71,38 @@
                 <asp:Button ID="SubButton" runat="server" OnClick="SubButton_Click" Text="Submit" />
             </p>
         </div>
+
+        <p>&nbsp;</p>
+            <h2>Video Update</h2>
+            <asp:Label ID="VidLabel" runat="server" Text="Url"></asp:Label>
+            :
+            <asp:TextBox ID="VidBox" runat="server"></asp:TextBox>
+            :
+            <asp:Button ID="VidChange" runat="server" OnClick="VidChange_Click" Text="Submit" />
+        <p>&nbsp;</p>
+            <h2>Alumni Map (Id | Name | Alumni)</h2>
+        </br>
+        <asp:Repeater ID="RepeaterNum2" runat="server">
+            <HeaderTemplate><table id="editTable"></HeaderTemplate>
+            <ItemTemplate>
+                <div>
+                <tr class="<%# Container.ItemIndex % 2 == 0 ? "rowOdd" : "rowEven" %>">
+                <td><asp:Label ID="idLabel" Text='<%# Eval("Id") %>' runat="server"></asp:Label></td>
+                <td><asp:Label ID="AlumniNameLabel" Text='<%# Eval("Name") %>' runat="server" Width="350"></asp:Label>
+                    <asp:TextBox ID="EditAlumniName" runat="server" Width="350" Text='<%# Eval("Name") %>'  Visible="false" />
+                </td>
+                <td><asp:Label ID="AlumniLabel" CssClass="profileCSS" Text='<%# Eval("Alumni") %>' runat="server" Width="550"></asp:Label>
+                    <asp:TextBox ID="EditAlumni" runat="server" Text='<%# Eval("Alumni") %>' Width="550" Height="70" TextMode="multiLine" Visible="false" />
+                </td>
+                <td><asp:LinkButton ID ="deleteLink" Text="Delete" runat="server" OnClick="DeleteLink_Click" OnClientClick="return confirm('Do you want to delete this row?');"></asp:LinkButton></td>
+                <td><asp:LinkButton ID ="editLink" Text="Edit" OnClick="OnEditAlumni_Click" runat="server"></asp:LinkButton><asp:LinkButton ID ="updateLink" CssClass="LinkPad" Text="Update" OnClick="OnAlumniUpdate_Click" runat="server" Visible="false"></asp:LinkButton><asp:LinkButton ID ="cancelLink" Text="Cancel" OnClick="OnCancelAlumni_Click" runat="server" Visible="false"></asp:LinkButton></td>
+                </tr>
+                </div>
+            </ItemTemplate>
+            <FooterTemplate></table></FooterTemplate>
+        </asp:Repeater>
+        
+
     </div>
     </form>
     <footer>

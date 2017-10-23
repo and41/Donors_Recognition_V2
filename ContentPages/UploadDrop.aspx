@@ -30,7 +30,7 @@
                 <asp:ListItem Value="LeadershipTables">Leadership Tables</asp:ListItem>
                 <asp:ListItem Value="MapTables">Map Tables</asp:ListItem>
                 <asp:ListItem Value="RecTables">Recognition Tables</asp:ListItem>
-                <asp:ListItem Value="TestimonialTables">Testimonial Tables</asp:ListItem>
+                <%--<asp:ListItem Value="TestimonialTables">Testimonial Tables</asp:ListItem> --%>
             </asp:DropDownList>
             <asp:Button ID="DropdownGOTO" runat="server" Text="Go To" onclick="GOTO_Click"/>
             </br>

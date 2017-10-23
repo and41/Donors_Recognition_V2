@@ -16,7 +16,11 @@
     <script src="Javascript/Search_JS/jquery.quicksearch.js"></script>
 </head>
 
-<body>
+<body onload="openNav()">
+
+    <div id="mySidenav" class="sidenav">
+    <a href="Donor_Gallery.aspx" class="tablinks">Photo Gallery</a>
+    </div>
 
     <a href="Content_Management.aspx">To Edit</a>
     <div id="FormFade-Testimonials" class="FormBorder-Testimonials">
@@ -69,14 +73,33 @@
         </div>
     </div>
 
+    <script>
+        /* Set the width of the side navigation to 250px */
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function openSecNav() {
+            document.getElementById("mySecSidenav").style.width = "250px";
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        /* Set the width of the side navigation to 0 */
+        function closeSecNav() {
+            document.getElementById("mySecSidenav").style.width = "0";
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+    </script>
+
     <footer class="FooterTab-Testimonials">
         <div class="footer-Testimonials">
         <a href="Default.aspx"><div class="menubar">
             <img src="Images/Home_Assets/Icons/Home_Icon.png" alt="" class="icon" />
-            <p class="label"></p>
-        </div></a>
-        <a href="Donor_Gallery.aspx"><div class="menubar">
-            <img src="Images/Home_Assets/Icons/Gallery_Icon.png" alt="" class="icon" />
             <p class="label"></p>
         </div></a>
         </div>

@@ -19,13 +19,14 @@ public partial class Gallery : System.Web.UI.Page
         Call_Database callDb = new Call_Database();
         dtDonors = callDb.dbDonors;
 
-        HtmlGenericControl div, img;
+        HtmlGenericControl div, cap, img1, img2, bold;
 
         foreach (DataRow row in dtDonors.Rows)
         {
             string DenyPhoto = "Images/dbImages/";
 
             string Deny = (string)row["photo"];
+            string Content = (string)row["profile"];
             if (Deny != DenyPhoto)
             {
 
@@ -34,14 +35,23 @@ public partial class Gallery : System.Web.UI.Page
                 div.Attributes["style"] = "display: none;";
                 SlideShowDiv.Controls.Add(div);
 
-                img = new HtmlGenericControl("img");
-                img.Attributes["data-u"] = "image";
-                img.Attributes["src"] = row["photo"].ToString();
-                div.Controls.Add(img);
-                img = new HtmlGenericControl("img");
-                img.Attributes["data-u"] = "thumb";
-                img.Attributes["src"] = row["photo"].ToString();
-                div.Controls.Add(img);
+                img1 = new HtmlGenericControl("img");
+                img1.Attributes["data-u"] = "image";
+                img1.Attributes["src"] = row["photo"].ToString();
+                div.Controls.Add(img1);
+
+                cap = new HtmlGenericControl("span");
+                cap.Attributes["style"] = "position: inherit; top: 500px; left: 450px; width: 350px; height: 80px; display: block; font - size: 20px; line - height: 30px; text - align: center; background: rgba(255,255,255, 0.8); border-radius: 10px; padding: 20px; ";
+                img1.Controls.Add(cap);
+
+                bold = new HtmlGenericControl("b");
+                bold.InnerHtml = row["profile"].ToString();
+                cap.Controls.Add(bold);
+
+                img2 = new HtmlGenericControl("img");
+                img2.Attributes["data-u"] = "thumb";
+                img2.Attributes["src"] = row["photo"].ToString();
+                div.Controls.Add(img2);
             }
         }
     }

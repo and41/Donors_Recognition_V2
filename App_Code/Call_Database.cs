@@ -16,6 +16,11 @@ using System.Data.SqlClient;
 public class Call_Database
 {
     private const string conn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DonorsRec.mdf;Integrated Security = True";
+
+    //Recognition Video Change
+    public DataTable dtMisc;
+    private DataTable _dtMisc;
+
     public DataTable Advdt;
     private DataTable _Advdt;
     public DataTable Elecdt;
@@ -83,6 +88,12 @@ public class Call_Database
     public DataTable dtChairsBenches;
     private DataTable _dtChairsBenches;
 
+    /// <summary>
+    /// AlumniMap
+    /// </summary>
+    public DataTable dtAlumniMap;
+    private DataTable _dtAlumniMap;
+
     public Call_Database()
     {
         DataTable Advdt = new DataTable();
@@ -121,6 +132,7 @@ public class Call_Database
         _dtCenturyTab = dtCenturyTab;
         LoadOtherDonorsTab(dtOtherDonorsTab);
         _dtOtherDonorsTab = dtOtherDonorsTab;
+
 
         ///Following is new Definitions for Donors_Map
         DataTable dtFisherHall = new DataTable();
@@ -171,8 +183,15 @@ public class Call_Database
         DataTable dtChapel = new DataTable();
         LoadChapel(dtChapel);
         _dtChapel = dtChapel;
+
+        //The Following is for AlumniMap
+        DataTable dtAlumniMap = new DataTable();
+        LoadAlumniMap(dtAlumniMap);
+        _dtAlumniMap = dtAlumniMap;
     }
 
+
+    //CORE INIT
     public DataTable AdvBoard
         {
         get{ return _Advdt; }
@@ -338,6 +357,12 @@ public class Call_Database
     {
         get { return _dtChairsBenches; }
         set { _dtChairsBenches = value; }
+    }
+    
+    public DataTable dbAlumniMap
+    {
+        get { return _dtAlumniMap; }
+        set { _dtAlumniMap = value; }
     }
 
     /// <summary>
@@ -694,7 +719,25 @@ public class Call_Database
             }
         }
     }
-    
+
+    // Video Update
+    public void VideoUPDATE(string Url = null)
+    {
+        using (SqlConnection conn = new SqlConnection(Call_Database.conn))
+        {
+            using (SqlCommand CmdSql = new SqlCommand("UPDATE MiscStorage SET Url = @Url WHERE Id = 1", conn))
+            {
+            CmdSql.Parameters.AddWithValue("@Url", Url);
+            CmdSql.Connection = conn;
+            conn.Open();
+            CmdSql.ExecuteNonQuery();
+            conn.Close();
+            }
+        }
+    }
+
+    //AlumniMap Update
+
     /// Universal UPDATE Method
     public void FormUPDATE(string Action = null, string FormVar1 = null, string FormVar2 = null, string FormVar3 = null, string FormVar4 = null, string FormVar5 = null, int FormInt1 = 0, int FormInt2 = 0, int FormInt3 = 0, float FormFloat1 = 0)
     {
@@ -1054,6 +1097,21 @@ public class Call_Database
                     conn.Close();
                 }
             }
+            else if (Action == "AlumniMapUPDATE")
+            {
+                using (SqlCommand CmdSql = new SqlCommand("ProcDonorADD_UPDATE"))
+                {
+                    CmdSql.CommandType = CommandType.StoredProcedure;
+                    CmdSql.Parameters.AddWithValue("@Action", Action);
+                    CmdSql.Parameters.AddWithValue("@ProcedureId", FormInt1);
+                    CmdSql.Parameters.AddWithValue("@AlumniName", FormVar1);
+                    CmdSql.Parameters.AddWithValue("@AlumniNum", FormInt2);
+                    CmdSql.Connection = conn;
+                    conn.Open();
+                    CmdSql.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
         }
     }
 
@@ -1406,5 +1464,34 @@ public class Call_Database
         drChapelMain = cmd.ExecuteReader();
         dtChapel.Load(drChapelMain);
         conn.Close();
+    }
+
+    public void LoadAlumniMap(DataTable dtAlumniMap)
+    {
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT * FROM AlumniMap";
+        SqlCommand cmd = new SqlCommand(command, conn);
+        SqlDataReader drAlumniMap;
+        conn.Open();
+        drAlumniMap = cmd.ExecuteReader();
+        dtAlumniMap.Load(drAlumniMap);
+        conn.Close();
+    }
+
+
+    //Video Load
+    public string VideoLOAD()
+    {
+        Object returnValue;
+
+        SqlConnection conn = new SqlConnection(Call_Database.conn);
+        string command = "SELECT Url FROM MiscStorage WHERE Id = 1";
+        SqlCommand cmd = new SqlCommand(command, conn);
+
+        conn.Open();
+        returnValue = cmd.ExecuteScalar();
+        conn.Close();
+
+        return returnValue.ToString();
     }
 }

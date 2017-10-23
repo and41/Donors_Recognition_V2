@@ -21,8 +21,11 @@ public partial class ContentPages_TestimonialManagement : System.Web.UI.Page
         if (!IsPostBack)
         {
             Call_Database PageDB = new Call_Database();
+            Call_Database AlumniDB = new Call_Database();
             RepeaterNum.DataSource = PageDB.dbDonors;
             RepeaterNum.DataBind();
+            RepeaterNum2.DataSource = AlumniDB.dbAlumniMap;
+            RepeaterNum2.DataBind();
         }
     }
 
@@ -84,6 +87,15 @@ public partial class ContentPages_TestimonialManagement : System.Web.UI.Page
         }
     }
 
+    //Update Video
+    protected void VidChange_Click(object sender, EventArgs e)
+    {
+        Call_Database vidDB = new Call_Database();
+
+        vidDB.VideoUPDATE(VidBox.Text);
+        VidBox.Text = String.Empty;
+    }
+
     //DELETE datafields from Database Table
     protected void DeleteLink_Click(object sender, EventArgs e)
     {
@@ -104,7 +116,19 @@ public partial class ContentPages_TestimonialManagement : System.Web.UI.Page
         RepeaterItem item = (sender as LinkButton).Parent as RepeaterItem;
         this.ToggleElements(item, true);
     }
+    protected void OnEditAlumni_Click(object sender, EventArgs e)
+    {
+        //Find the reference of the Repeater Item.
+        RepeaterItem item = (sender as LinkButton).Parent as RepeaterItem;
+        this.ToggleElements2(item, true);
+    }
     protected void OnCancel_Click(object sender, EventArgs e)
+    {
+        //Find the reference of the Repeater Item.
+        RepeaterItem item = (sender as LinkButton).Parent as RepeaterItem;
+        this.ToggleElements(item, false);
+    }
+    protected void OnCancelAlumni_Click(object sender, EventArgs e)
     {
         //Find the reference of the Repeater Item.
         RepeaterItem item = (sender as LinkButton).Parent as RepeaterItem;
@@ -126,6 +150,28 @@ public partial class ContentPages_TestimonialManagement : System.Web.UI.Page
         item.FindControl("EditPhoto").Visible = isEdit;
         item.FindControl("EditName").Visible = isEdit;
         item.FindControl("EditProfile").Visible = isEdit;
+        item.FindControl("EditAlumniName").Visible = isEdit;
+        item.FindControl("EditAlumni").Visible = isEdit;
+
+
+    }
+
+    private void ToggleElements2(RepeaterItem item, bool isEdit)
+    {
+        //Toggle Buttons.
+        item.FindControl("editLink").Visible = !isEdit;
+        item.FindControl("updateLink").Visible = isEdit;
+        item.FindControl("cancelLink").Visible = isEdit;
+
+        //Toggle Labels.
+        item.FindControl("AlumniNameLabel").Visible = !isEdit;
+        item.FindControl("AlumniLabel").Visible = !isEdit;
+
+        //Toggle TextBoxes.
+        item.FindControl("EditAlumniName").Visible = isEdit;
+        item.FindControl("EditAlumni").Visible = isEdit;
+
+
     }
 
     //UPDATE datafields from Repeater Table
@@ -143,4 +189,19 @@ public partial class ContentPages_TestimonialManagement : System.Web.UI.Page
         RepeaterNum.DataSource = update.dbDonors;
         RepeaterNum.DataBind();
     }
+
+    protected void OnAlumniUpdate_Click(object sender, EventArgs e)
+    {
+        Call_Database updateEntry = new Call_Database();
+        RepeaterItem item = (sender as LinkButton).Parent as RepeaterItem;
+        string Action = "AlumniMapUPDATE";
+        int updateId = int.Parse((item.FindControl("idLabel") as Label).Text);
+        string EditName = (item.FindControl("EditAlumniName") as TextBox).Text;
+        string EditAlumni = ((item.FindControl("EditAlumni") as TextBox).Text);
+        int EditAlumniNum = Convert.ToInt32(EditAlumni);
+        updateEntry.FormUPDATE(Action, EditName, null, null, null, null, updateId, EditAlumniNum, 0, 0);
+        Call_Database update = new Call_Database();
+        RepeaterNum2.DataSource = update.dbAlumniMap;
+        RepeaterNum2.DataBind();
+        }
 }

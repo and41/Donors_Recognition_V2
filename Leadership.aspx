@@ -9,10 +9,9 @@
     <link href="~/css/LeadershipFund.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Javascript/Leadership_JS/Leadership.js"></script>
 </head>
-<body onload="openCity(event, 'AdvBoard')">
+<body onload="openNav(), openCity(event, 'AdvBoard')">
 
     <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#" class="tablinks" onclick="openCity(event, 'AdvBoard')">Advisory Board</a>
   <a href="#" class="tablinks" onclick="openCity(event, 'ElecBoard')">Pitt Bradford Alumni Association Elected Members</a>
 </div>

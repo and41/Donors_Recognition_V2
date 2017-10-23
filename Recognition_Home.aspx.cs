@@ -14,6 +14,7 @@ public partial class Donors : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         string strQuery = "";
+        string strVideo = "";
         if (Request.QueryString["Id"] != null)
         {
             strQuery = Request.QueryString["Id"].ToString();
@@ -22,6 +23,12 @@ public partial class Donors : System.Web.UI.Page
         Call_Database FoundersDB = new Call_Database();
         Repeater1.DataSource = FoundersDB.dbFounders;
         Repeater1.DataBind();
+
+
+        Call_Database VideoDB = new Call_Database();
+        strVideo = VideoDB.VideoLOAD();
+
+        urIframe.Attributes.Add("src", strVideo.ToString());
 
         Call_Database CornerstoneDB = new Call_Database();
         Repeater2.DataSource = CornerstoneDB.dbCornerstone;

@@ -9,10 +9,9 @@
     <link href="~/css/RecognitionDB.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="Javascript/Leadership_JS/Leadership.js"></script>
 </head>
-<body onload="openCity(event, 'Scholarships')">
+<body onload="openNav(), openCity(event, 'Scholarships')">
 
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#" class="tablinks" onclick="openCity(event, 'Scholarships')">Scholarships</a>
   <a href="#" class="tablinks" onclick="openCity(event, 'FounderSoc')">Founder's Society</a>
   <a href="#" class="tablinks" onclick="openCity(event, 'Campaign50')">Campaign 50 Donors</a>
@@ -30,7 +29,7 @@
         <a href="#" class="tablinks" onclick="openCity(event, 'OtherDonorsTab')">Other Donors</a>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()"></span>
 
   <div class="leaderdiv">
 
@@ -94,8 +93,11 @@
         </asp:Repeater>
 </div>
            <div id="Campaign50" class="tabcontent">
-               <iframe width="1070" height="610" src="https://www.youtube.com/embed/4ol5j-kepuI" frameborder="0" allowfullscreen></iframe>
+               
+               <iframe id="urIframe" runat="server" width="1070" height="610" frameborder="0" allowfullscreen></iframe>
+
 </div>
+
            <div id="CornerstoneTab" class="tabcontent">
                <asp:Repeater ID="Repeater2" runat="server">
             <HeaderTemplate>
