@@ -24,16 +24,6 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
 
         string conString = string.Empty;
         string extension = Path.GetExtension(FileUploadID.PostedFile.FileName).ToLower();
-        switch (extension)
-        {
-            case ".xls": //Excel 97-03
-                conString = ConfigurationManager.ConnectionStrings["Excel03ConString"].ConnectionString;
-                break;
-            case ".xlsx": //Excel 07 or higher
-                conString = ConfigurationManager.ConnectionStrings["Excel07+ConString"].ConnectionString;
-                break;
-
-        }
 
         conString = string.Format(conString, excelPath);
         using (OleDbConnection excel_con = new OleDbConnection(conString))
