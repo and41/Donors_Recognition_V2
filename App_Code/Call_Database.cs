@@ -9,6 +9,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using OfficeOpenXml;
 
 /// <summary>
 /// Summary description for Call_Database
@@ -195,10 +196,10 @@ public class Call_Database
 
     //CORE INIT
     public DataTable AdvBoard
-        {
-        get{ return _Advdt; }
-        set{ _Advdt = value; }
-         }
+    {
+        get { return _Advdt; }
+        set { _Advdt = value; }
+    }
     public DataTable ElecBoard
     {
         get { return _Elecdt; }
@@ -208,7 +209,7 @@ public class Call_Database
     public DataTable dbDonors
     {
         get { return _dtDonors; }
-        set { _dtDonors = value;}
+        set { _dtDonors = value; }
     }
 
     public DataTable dbFounders
@@ -360,7 +361,7 @@ public class Call_Database
         get { return _dtChairsBenches; }
         set { _dtChairsBenches = value; }
     }
-    
+
     public DataTable dbAlumniMap
     {
         get { return _dtAlumniMap; }
@@ -387,7 +388,7 @@ public class Call_Database
             }
         }
     }
-    
+
     /// Universal INSERT Method
     public void FormINSERT(string Action = null, string FormVar1 = null, string FormVar2 = null, string FormVar3 = null, string FormVar4 = null, string FormVar5 = null, int FormInt1 = 0, int FormInt2 = 0, int FormInt3 = 0, float FormFloat1 = 0)
     {
@@ -729,11 +730,11 @@ public class Call_Database
         {
             using (SqlCommand CmdSql = new SqlCommand("UPDATE MiscStorage SET Url = @Url WHERE Id = 1", conn))
             {
-            CmdSql.Parameters.AddWithValue("@Url", Url);
-            CmdSql.Connection = conn;
-            conn.Open();
-            CmdSql.ExecuteNonQuery();
-            conn.Close();
+                CmdSql.Parameters.AddWithValue("@Url", Url);
+                CmdSql.Connection = conn;
+                conn.Open();
+                CmdSql.ExecuteNonQuery();
+                conn.Close();
             }
         }
     }
@@ -1443,7 +1444,7 @@ public class Call_Database
         dtPeaceWall.Load(drChapelWall);
         conn.Close();
     }
-    
+
     public void LoadChairsBenches(DataTable dtChairsBenches)
     {
         SqlConnection conn = new SqlConnection(Call_Database.conn);
@@ -1480,6 +1481,33 @@ public class Call_Database
         conn.Close();
     }
 
+    //Excel
+    public void Connect(FileUpload excelvar, string tablestr = null)
+    {
+        var excel = new ExcelPackage(excelvar.FileContent);
+        var dt = excel.ToDataTable();
+        var table = tablestr;
+        using (var conn = new SqlConnection(Call_Database.conn))
+        {
+            var bulkCopy = new SqlBulkCopy(conn);
+            bulkCopy.DestinationTableName = table;
+            conn.Open();
+            var schema = conn.GetSchema("Columns", new[] { null, null, table, null });
+            foreach (DataColumn sourceColumn in dt.Columns)
+            {
+                foreach (DataRow row in schema.Rows)
+                {
+                    if (string.Equals(sourceColumn.ColumnName, (string)row["COLUMN_NAME"], StringComparison.OrdinalIgnoreCase))
+                    {
+                        bulkCopy.ColumnMappings.Add(sourceColumn.ColumnName, (string)row["COLUMN_NAME"]);
+                        break;
+                    }
+                }
+            }
+            bulkCopy.WriteToServer(dt);
+        }
+    }
+
 
     //Video Load
     public string VideoLOAD()
@@ -1496,4 +1524,5 @@ public class Call_Database
 
         return returnValue.ToString();
     }
+
 }
