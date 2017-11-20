@@ -94,7 +94,6 @@
                 <td><asp:Label ID="AlumniLabel" CssClass="profileCSS" Text='<%# Eval("Alumni") %>' runat="server" Width="550"></asp:Label>
                     <asp:TextBox ID="EditAlumni" runat="server" Text='<%# Eval("Alumni") %>' Width="550" Height="70" TextMode="multiLine" Visible="false" />
                 </td>
-                <td><asp:LinkButton ID ="deleteLink" Text="Delete" runat="server" OnClick="DeleteLink_Click" OnClientClick="return confirm('Do you want to delete this row?');"></asp:LinkButton></td>
                 <td><asp:LinkButton ID ="editLink" Text="Edit" OnClick="OnEditAlumni_Click" runat="server"></asp:LinkButton><asp:LinkButton ID ="updateLink" CssClass="LinkPad" Text="Update" OnClick="OnAlumniUpdate_Click" runat="server" Visible="false"></asp:LinkButton><asp:LinkButton ID ="cancelLink" Text="Cancel" OnClick="OnCancelAlumni_Click" runat="server" Visible="false"></asp:LinkButton></td>
                 </tr>
                 </div>
