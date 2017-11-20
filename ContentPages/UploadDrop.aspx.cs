@@ -19,21 +19,6 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
 
     protected void UPLOADData_Click(object sender, EventArgs e)
     {
-        /*
-        string excelPath = Server.MapPath("../Files/") + Path.GetFileName(FileUploadID.PostedFile.FileName);
-        FileUploadID.SaveAs(excelPath);
-
-        string conString = string.Empty;
-        string extension = Path.GetExtension(FileUploadID.PostedFile.FileName).ToLower();
-
-        conString = string.Format(conString, excelPath);
-        using (OleDbConnection excel_con = new OleDbConnection(conString))
-        {
-        
-            excel_con.Open();
-            string sheet1 = excel_con.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null).Rows[0]["TABLE_NAME"].ToString();
-            DataTable dtExcelData = new DataTable();
-            */
         //Recognition Upload
         if (RecognitionUpload.Visible == true)
         {
@@ -166,7 +151,6 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
             }
         }
         //MAP END
-    //}
     }
 
 
