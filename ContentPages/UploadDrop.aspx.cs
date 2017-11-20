@@ -13,9 +13,6 @@ using OfficeOpenXml;
 
 public partial class ContentPages_UploadDrop : System.Web.UI.Page
 {
-
-    Call_Database conn = new Call_Database();
-
     protected void Page_Load(object sender, EventArgs e)
     {
     }
@@ -49,46 +46,55 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
             {
                 if (RecognitionUpload.Items.FindByValue("Scholarships").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "Scholarships");
             }
 
                 else if (RecognitionUpload.Items.FindByValue("Founders").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "Founders");
                 }
-
+                
                 else if (RecognitionUpload.Items.FindByValue("CornerstoneTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "CornerstoneTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("RoundtableTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "RoundtableTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("PresidentsTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "PresidentsTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("QuadrangleTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "QuadrangleTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("BlueGoldTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "BlueGoldTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("CenturyTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "CenturyTab");
                 }
 
                 else if (RecognitionUpload.Items.FindByValue("OtherDonorsTab").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "OtherDonorsTab");
                 }
                 //Recognition End
@@ -98,11 +104,13 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
             {
                 if (LeadershipUpload.Items.FindByValue("AdvBoard").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "AdvBoard");
                 }
 
                 else if (LeadershipUpload.Items.FindByValue("ElecBoard").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "ElecBoard");
                 }
             }
@@ -110,48 +118,57 @@ public partial class ContentPages_UploadDrop : System.Web.UI.Page
             //MAP START
             else if (MapDataUpload.Visible == true)
             {
-                if (LeadershipUpload.Items.FindByValue("OutdoorsInfo").Selected == true)
+                if (MapDataUpload.Items.FindByValue("OutdoorsInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "OutdoorsInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("ChapelInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("ChapelInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "ChapelInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("CommonsInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("CommonsInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "CommonsInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("FisherHallInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("FisherHallInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "FisherHallInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("FitnessCenterInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("FitnessCenterInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "FitnessCenterInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("LibraryInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("LibraryInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "LibraryInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("ResHallInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("ResHallInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "ResHallInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("SwartsHallInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("SwartsHallInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "SwartsHallInfo");
                 }
 
-                else if (LeadershipUpload.Items.FindByValue("BlaisdellHallInfo").Selected == true)
+                else if (MapDataUpload.Items.FindByValue("BlaisdellHallInfo").Selected == true)
                 {
+                    Call_Database conn = new Call_Database();
                     conn.Connect(FileUploadID, "BlaisdellHallInfo");
                 }
             }
