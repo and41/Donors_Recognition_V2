@@ -16,7 +16,7 @@ using OfficeOpenXml;
 /// </summary>
 public class Call_Database
 {
-    private const string conn = @"Data Source = tcp:protoserv.database.windows.net,1433;Database=DonorsRec;User ID = XXX;Password=XXX;Trusted_Connection=False;Encrypt=True;";
+    private const string conn = @"Data Source = tcp:protoserv.database.windows.net,1433;Database=DonorsRec;User ID = asd41;Password=GWuxia#@91;Trusted_Connection=False;Encrypt=True;";
 
     //private const string conn = @"Data Source = (LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\DonorsRec.mdf;Integrated Security = True";
 
